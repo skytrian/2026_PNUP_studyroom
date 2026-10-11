@@ -108,4 +108,4 @@ $("allCards").onclick=()=>{showAll=true;$("allCards").classList.add("active");$(
 $("starCards").onclick=()=>{showAll=false;$("starCards").classList.add("active");$("allCards").classList.remove("active");idx=0;buildDeck()};
 $("startSaved").onclick=()=>{const savedCards=cards.filter(c=>stars.has(cardKey(c)));if(!savedCards.length){alert("별표 저장한 단답형 카드가 없습니다. 요약 내용은 아래 목록에서 확인할 수 있습니다.");return}deck=savedCards;idx=0;document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x.dataset.panel==="memorize"));document.querySelectorAll(".panel").forEach(x=>x.classList.toggle("active",x.id==="memorize"));renderCard()};
 renderSummary();renderQuizChapters();buildDeck();renderSaved();
-</script><script src="immunology-extras.js?v=20261011.03"></script></body></html>
+</script><script src="immunology-extras.js?v=20261011.04"></script></body></html>
