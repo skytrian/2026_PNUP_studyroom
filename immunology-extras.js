@@ -179,7 +179,7 @@ let targetGroup="all",targetDeck=[...targetMemoryCards],targetIndex=0,targetKnow
 try{const st=JSON.parse(localStorage.getItem(targetMemoryKey)||"{}");targetKnown=new Set(st.known||[]);targetMissed=new Set(st.missed||[])}catch(e){}
 function saveTargetState(){try{localStorage.setItem(targetMemoryKey,JSON.stringify({known:[...targetKnown],missed:[...targetMissed]}))}catch(e){}}
 function targetBuild(group=targetGroup,onlyMissed=false,shuffle=false){targetGroup=group;let arr=targetMemoryCards.filter(c=>(group==="all"||c.g===group)&&(!onlyMissed||targetMissed.has(c.q)));if(shuffle)arr=arr.sort(()=>Math.random()-.5);targetDeck=arr;targetIndex=0;targetRevealed=false;document.querySelectorAll("#memoryGroups [data-group]").forEach(b=>b.classList.toggle("active",b.dataset.group===group));targetRender()}
-function targetRender(){const q=document.getElementById("targetQuestion");if(!q)return;const c=targetDeck[targetIndex];const flash=document.getElementById("targetFlashcard");if(!c){flash.innerHTML='<div class="empty">선택한 범위에 남은 카드가 없습니다. 전체 카드 또는 다른 묶음을 선택하세요.</div>';document.getElementById("memoryOverview").textContent="해당 조건의 카드가 없습니다.";return}
+function targetRender(){const q=document.getElementById("targetQuestion");if(!q)return;const c=targetDeck[targetIndex];const flash=document.getElementById("targetFlashcard");if(!c){document.getElementById("targetQuestion").textContent="이 조건에 남은 카드가 없습니다.";document.getElementById("targetAnswer").innerHTML="전체 카드 또는 다른 묶음을 선택하세요.";document.getElementById("targetAnswer").classList.remove("hidden");document.getElementById("targetPosition").textContent="0 / 0";document.getElementById("targetProgressFill").style.width="0%";return}
 document.getElementById("targetGroupLabel").textContent=({tlr:"TLR",cytokine:"선천면역 사이토카인",chemokine:"케모카인·수용체",macrophage:"조직 거주 대식세포"})[c.g]+" · "+c.label;
 document.getElementById("targetPosition").textContent=(targetIndex+1)+" / "+targetDeck.length;
 q.textContent=c.q;
@@ -198,6 +198,17 @@ document.getElementById("targetNext").onclick=()=>{if(targetDeck.length){targetI
 document.getElementById("targetReviewMissed").onclick=()=>targetBuild(targetGroup,true,true);
 document.getElementById("targetReviewAll").onclick=()=>targetBuild(targetGroup,false,true);
 document.getElementById("memoryReset").onclick=()=>{if(confirm("이 탭의 암기 진행 상태를 초기화할까요?")){targetKnown.clear();targetMissed.clear();saveTargetState();targetBuild(targetGroup,false,false)}};
+
+document.getElementById("targetReferenceTables").innerHTML =
+'<h3>1. Toll-like receptors</h3><div style="overflow-x:auto"><table><thead><tr><th>수용체</th><th>리간드</th><th>대상 미생물</th></tr></thead><tbody>'+
+'<tr><td>TLR3</td><td>dsRNA</td><td>바이러스</td></tr><tr><td>TLR4</td><td>LPS</td><td>그람음성균</td></tr><tr><td>TLR5</td><td>Flagellin</td><td>편모 보유 세균</td></tr><tr><td>TLR7</td><td>ssRNA</td><td>RNA 바이러스</td></tr><tr><td>TLR8</td><td>ssRNA 및 RNA 분해 산물</td><td>바이러스 및 일부 세균 유래 RNA</td></tr><tr><td>TLR9</td><td>Unmethylated CpG-rich DNA</td><td>세균·바이러스 등 미생물</td></tr></tbody></table></div>'+
+'<h3>2. 선천면역 주요 사이토카인</h3><div style="overflow-x:auto"><table><thead><tr><th>사이토카인</th><th>주요 분비 세포(대표)</th><th>핵심 기능</th></tr></thead><tbody>'+
+'<tr><td>TNF</td><td>대식세포 등</td><td>염증·내피 활성화, 발열 및 전신 염증 반응</td></tr><tr><td>IL-1</td><td>대식세포 등</td><td>염증 촉진, 발열·내피 활성화</td></tr><tr><td>IL-6</td><td>대식세포 등</td><td>염증 및 급성기 반응</td></tr><tr><td>IL-12</td><td>대식세포·DC</td><td>NK/T 세포 활성화, IFN-γ 생성 촉진</td></tr><tr><td>IL-10</td><td>대식세포·DC·조절 T세포 등</td><td>항염증, 대식세포·DC 활성 억제</td></tr><tr><td>Type I IFN (IFN-α/β)</td><td>바이러스 감염 세포 및 pDC 등</td><td>항바이러스 상태 유도</td></tr></tbody></table></div>'+
+'<h3>3. PDF에서 형광 강조된 케모카인 축</h3><div style="overflow-x:auto"><table><thead><tr><th>세포</th><th>케모카인</th><th>수용체</th><th>이동 위치·기능</th></tr></thead><tbody>'+
+'<tr><td>B cell</td><td><b>CXCL13</b></td><td><b>CXCR5</b></td><td>B-cell follicle로 이동</td></tr><tr><td>T cell / DC</td><td><b>CCL19, CCL21</b></td><td><b>CCR7</b></td><td>T-cell zone으로 이동</td></tr></tbody></table></div>'+
+'<h3>4. 조직 거주 대식세포 7종 (PDF 표기)</h3><div style="overflow-x:auto"><table><thead><tr><th>조직</th><th>세포명</th></tr></thead><tbody>'+
+'<tr><td>Brain</td><td>Microglial cells</td></tr><tr><td>Lung</td><td>Alveolar macrophages</td></tr><tr><td>Liver</td><td>Kupffer cells</td></tr><tr><td>Heart</td><td>Myocardial macrophages</td></tr><tr><td>Skin</td><td>Dermal macrophages</td></tr><tr><td>Spleen</td><td>Sinusoidal macrophages</td></tr><tr><td>Intestines</td><td>Lamina propria macrophages</td></tr></tbody></table></div>';
+
 targetBuild("all",false,false);
 
 })();
