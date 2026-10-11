@@ -27,7 +27,6 @@ const qs=[
 [1,"Which cells use rearranged antigen-specific receptors?",["Neutrophils only","B and T lymphocytes","Red blood cells","Epithelial cells only"],1,"B세포와 T세포는 재조합된 항원 수용체로 특이적 항원을 인식합니다."],
 [1,"What is the main outcome of clonal selection?",["All lymphocytes recognize the same antigen","Antigen-specific lymphocytes are selected and expand","Innate receptors undergo V(D)J recombination","Antibodies become TCRs"],1,"항원 특이적 림프구 클론이 선택되어 증식·분화합니다."],
 [1,"Which complement fragment can support B-cell co-stimulation?",["C3d","C9 only","FcRn","ICAM-1"],0,"C3d–CR2(CD21) 결합은 B세포 보조 신호를 강화할 수 있습니다."],
-[1,"Which statement about humoral immunity is correct?",["It is primarily mediated by antibodies","It is performed only by cytotoxic T cells","It does not involve B cells","It is identical to innate immunity"],0,"체액성 면역은 형질세포가 만드는 항체가 중심입니다."],
 [1,"Which is NOT a characteristic of adaptive immunity?",["Specificity","Memory","Self-tolerance","Inability to distinguish self from non-self"],3,"적응면역은 자기와 비자기를 구별하는 자가관용을 갖습니다."],
 [2,"Which APC is most important for priming naive T cells?",["Eosinophil","Dendritic cell","Basophil","Erythrocyte"],1,"수지상세포는 항원 제시와 공자극 신호로 naive T cell을 활성화합니다."],
 [2,"In a flow-cytometry dot plot, each dot usually represents:",["One antibody molecule","One individual cell","One chromosome","One cytokine"],1,"각 점은 개별 세포를 나타냅니다."],
@@ -35,7 +34,6 @@ const qs=[
 [2,"Which marker is commonly used for B-cell lineage?",["CD3","CD4","CD19","CD8"],2,"CD19는 B세포 계열을 구분하는 대표 표지자입니다."],
 [2,"Which organ monitors blood-borne antigens?",["Lymph node","Spleen","Thymus","Bone marrow only"],1,"비장은 혈액 유래 항원을 감시하고 림프절은 림프의 항원을 여과합니다."],
 [2,"Which eosinophil granule component is a key basic protein?",["FcRn","MBP","ICAM-1","CD3"],1,"MBP는 Major Basic Protein의 약어입니다."],
-[2,"Which statement about follicular dendritic cells is most accurate?",["They are the main antibody-secreting cells","They support B-cell responses in follicles","They express CD3 as a T-cell marker","They are identical to erythrocytes"],1,"소포 수지상세포는 B세포 여포에서 항원을 보존하고 B세포 반응을 지원합니다."],
 [2,"Which are primary lymphoid organs?",["Lymph node and spleen","Bone marrow and thymus","Spleen and MALT","Lymph node and MALT"],1,"골수와 흉선은 일차 림프기관입니다."],
 [2,"Which marker combination is associated with cytotoxic T cells?",["CD3+CD8+","CD19+CD4+","CD3−CD8− only","CD19+CD3+"],0,"CD3+CD8+는 대표적인 cytotoxic T-cell 집단입니다."],
 [3,"What is the correct sequence of leukocyte extravasation?",["Adhesion → rolling → activation → migration","Rolling → chemokine activation → firm adhesion → transmigration","Activation → migration → rolling → adhesion","Rolling → migration → activation → adhesion"],1,"Rolling → chemokine에 의한 integrin activation → firm adhesion → transmigration 순서입니다."],
@@ -55,7 +53,6 @@ const qs=[
 [5,"Which receptor helps extend IgG serum half-life?",["FcRn","CD3","LFA-1","RIG-I"],0,"FcRn은 IgG 분해를 줄여 반감기를 연장합니다."],
 [5,"Which domains form the MHC class II peptide-binding groove?",["α1 and β1","α3 and β2-microglobulin","Fc and Fab","CD3 and CD4"],0,"MHC class II의 α1과 β1 도메인이 결합 홈을 형성합니다."],
 [5,"Which technique separates proteins, transfers them to a membrane, and detects them with antibodies?",["ELISA","Western blot","Flow cytometry","Cell counting"],1,"Western blot은 단백질 분리, membrane transfer, 항체 검출 순서입니다."],
-[5,"Which statement distinguishes a monoclonal antibody from a hybridoma?",["They are identical terms","The antibody is the product; a hybridoma is a production cell line","A hybridoma is a cytokine","A monoclonal antibody is always a TCR"],1,"Monoclonal antibody는 항체 자체이고 hybridoma는 이를 생산하는 세포 기술입니다."],
 [5,"Which statement about TCR recognition is correct?",["TCR generally recognizes peptide presented by MHC","BCR only recognizes peptide-MHC complexes","TCR and antibody are identical","MHC II is the B-cell receptor"],0,"일반적인 αβ TCR은 MHC에 제시된 peptide를 인식합니다."]
 ];
 const short=[
