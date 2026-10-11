@@ -154,7 +154,7 @@ const targetMemoryCards = [
 {g:"tlr",label:"TLR4",q:"TLR4의 리간드는 무엇이며 어떤 미생물을 인식하는가?",a:"리간드: Lipopolysaccharide (LPS)\n대상: 그람음성균(Gram-negative bacteria)",why:"LPS는 그람음성균 외막의 대표적인 구성 성분입니다."},
 {g:"tlr",label:"TLR5",q:"TLR5의 리간드는 무엇이며 어떤 미생물을 인식하는가?",a:"리간드: Flagellin (편모 단백질)\n대상: 편모를 가진 세균(flagellated bacteria)",why:"TLR5는 세균 편모의 단백질 성분을 인식합니다."},
 {g:"tlr",label:"TLR7",q:"TLR7의 리간드는 무엇이며 어떤 미생물을 인식하는가?",a:"리간드: single-stranded RNA (ssRNA)\n대상: RNA 바이러스",why:"TLR7은 endosome에 위치하는 핵산 감지 TLR입니다."},
-{g:"tlr",label:"TLR8",q:"TLR8의 리간드는 무엇이며 어떤 미생물을 인식하는가?",a:"리간드: single-stranded RNA 및 RNA 분해 산물\n대상: 바이러스와 일부 세균 유래 RNA",why:"강의 자료는 TLR7·TLR8을 ssRNA 인식 수용체로 묶어 제시합니다."},
+{g:"tlr",label:"TLR8",q:"TLR8의 리간드는 무엇이며 어떤 미생물을 인식하는가?",a:"리간드: single-stranded RNA 및 RNA 분해 산물\n대상: 바이러스",why:"강의 자료는 TLR7·TLR8을 ssRNA 인식 수용체로 묶어 제시합니다."},
 {g:"tlr",label:"TLR9",q:"TLR9의 리간드는 무엇이며 어떤 미생물을 인식하는가?",a:"리간드: unmethylated CpG-rich DNA\n대상: 세균 및 바이러스 등 미생물 유래 DNA",why:"TLR9는 endosome에서 CpG motif가 풍부한 DNA를 인식합니다."},
 {g:"cytokine",label:"TNF",q:"TNF의 주요 기능은?",a:"대표적인 염증성(pro-inflammatory) 사이토카인. 내피 활성화와 염증 반응을 촉진하며 전신적으로 발열·급성기 반응 등에 관여",why:"PDF는 TNF를 IL-1·IL-6와 함께 초기 염증성 사이토카인으로 강조합니다."},
 {g:"cytokine",label:"IL-1",q:"IL-1의 주요 기능은?",a:"염증 촉진, 발열 및 혈관 내피 활성화 등 염증 반응 유도",why:"IL-1은 TNF·IL-6와 함께 주요 pro-inflammatory cytokine입니다."},
