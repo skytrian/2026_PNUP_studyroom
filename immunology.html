@@ -117,4 +117,48 @@ $("allCards").onclick=()=>{showAll=true;$("allCards").classList.add("active");$(
 $("starCards").onclick=()=>{showAll=false;$("starCards").classList.add("active");$("allCards").classList.remove("active");idx=0;buildDeck()};
 $("startSaved").onclick=()=>{const savedCards=cards.filter(c=>stars.has(cardKey(c)));if(!savedCards.length){alert("별표 저장한 단답형 카드가 없습니다. 요약 내용은 아래 목록에서 확인할 수 있습니다.");return}deck=savedCards;idx=0;document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x.dataset.panel==="memorize"));document.querySelectorAll(".panel").forEach(x=>x.classList.toggle("active",x.id==="memorize"));renderCard()};
 renderSummary();renderQuizChapters();buildDeck();renderSaved();
-</script><script src="immunology-extras.js?v=20261011.07"></script></body></html>
+</script><script src="immunology-extras.js?v=20261011.08"></script>
+<script>
+const IMMUNOLOGY_APP_VERSION="20261011.08";
+let immunologyVersionState="checking";
+async function checkImmunologyVersion(){
+ const el=document.getElementById("appVersionStatus");
+ if(!el)return;
+ el.className="app-version-status";
+ el.textContent="🔄 버전 확인 중…";
+ el.title="최신 버전을 확인하고 있습니다.";
+ try{
+  const url=new URL("./immunology-version.json",location.href);
+  url.searchParams.set("_",Date.now().toString());
+  const response=await fetch(url.toString(),{cache:"no-store",credentials:"same-origin"});
+  if(!response.ok)throw new Error("HTTP "+response.status);
+  const data=await response.json();
+  const latest=typeof data.version==="string"?data.version.trim():"";
+  if(!latest)throw new Error("버전 정보가 비어 있습니다.");
+  if(latest===IMMUNOLOGY_APP_VERSION){
+   immunologyVersionState="latest";
+   el.className="app-version-status latest";
+   el.textContent="🟢 최신 버전 · v"+IMMUNOLOGY_APP_VERSION;
+   el.title="현재 최신 버전입니다. 클릭하면 페이지를 새로고침합니다.";
+  }else{
+   immunologyVersionState="update";
+   el.className="app-version-status update";
+   el.textContent="🟠 새 버전 있음 · 새로고침";
+   el.title="현재 v"+IMMUNOLOGY_APP_VERSION+" / 배포 v"+latest+" · 클릭하여 최신 버전을 불러옵니다.";
+  }
+ }catch(error){
+  immunologyVersionState="error";
+  el.className="app-version-status error";
+  el.textContent="⚪ 버전 확인 실패 · 재시도";
+  el.title="버전 파일을 읽지 못했습니다. 클릭하면 다시 확인합니다.";
+  console.warn("면역학 버전 확인 실패:",error);
+ }
+}
+document.getElementById("appVersionStatus")?.addEventListener("click",()=>{
+ if(immunologyVersionState==="update"){
+  const url=new URL(location.href);url.searchParams.set("refresh",Date.now().toString());location.replace(url.toString());
+ }else{checkImmunologyVersion()}
+});
+checkImmunologyVersion();
+setInterval(checkImmunologyVersion,300000);
+</script></body></html>
