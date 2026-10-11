@@ -147,4 +147,57 @@ el("essayPrompts").innerHTML=essays.map((q,i)=>'<div class="essay-item"><b>Essay
 const old=window.renderSummary;
 function decorate(){const root=el("summaryContent");if(!root)return;const active=el("summaryChapters").querySelector(".chbtn.active");const n=active?Number(active.dataset.ch):1;const existing=root.querySelector(".visual");if(existing)existing.remove();const intro=root.querySelector(".card");if(intro)intro.insertAdjacentHTML("afterend",diagrams[n-1]);root.querySelectorAll(".predict-explanation").forEach((p,i)=>p.textContent=(exp[n]||[])[i]||"강의 개념의 정의와 작동 순서를 연결해 설명하세요.")}
 if(typeof old==="function"){window.renderSummary=function(){old();decorate()};window.renderSummary()}
+
+/* Focused active-recall tab based on the uploaded immunology notes. */
+const targetMemoryCards = [
+{g:"tlr",label:"TLR3",q:"TLR3의 리간드는 무엇이며 어떤 미생물을 인식하는가?",a:"리간드: double-stranded RNA (dsRNA)\n대상: 바이러스, 특히 dsRNA 또는 복제 중 dsRNA를 만드는 바이러스",why:"TLR3는 endosome의 핵산 감지 TLR입니다."},
+{g:"tlr",label:"TLR4",q:"TLR4의 리간드는 무엇이며 어떤 미생물을 인식하는가?",a:"리간드: Lipopolysaccharide (LPS)\n대상: 그람음성균(Gram-negative bacteria)",why:"LPS는 그람음성균 외막의 대표적인 구성 성분입니다."},
+{g:"tlr",label:"TLR5",q:"TLR5의 리간드는 무엇이며 어떤 미생물을 인식하는가?",a:"리간드: Flagellin (편모 단백질)\n대상: 편모를 가진 세균(flagellated bacteria)",why:"TLR5는 세균 편모의 단백질 성분을 인식합니다."},
+{g:"tlr",label:"TLR7",q:"TLR7의 리간드는 무엇이며 어떤 미생물을 인식하는가?",a:"리간드: single-stranded RNA (ssRNA)\n대상: RNA 바이러스",why:"TLR7은 endosome에 위치하는 핵산 감지 TLR입니다."},
+{g:"tlr",label:"TLR8",q:"TLR8의 리간드는 무엇이며 어떤 미생물을 인식하는가?",a:"리간드: single-stranded RNA 및 RNA 분해 산물\n대상: 바이러스와 일부 세균 유래 RNA",why:"강의 자료는 TLR7·TLR8을 ssRNA 인식 수용체로 묶어 제시합니다."},
+{g:"tlr",label:"TLR9",q:"TLR9의 리간드는 무엇이며 어떤 미생물을 인식하는가?",a:"리간드: unmethylated CpG-rich DNA\n대상: 세균 및 바이러스 등 미생물 유래 DNA",why:"TLR9는 endosome에서 CpG motif가 풍부한 DNA를 인식합니다."},
+{g:"cytokine",label:"TNF",q:"TNF의 주요 기능은?",a:"대표적인 염증성(pro-inflammatory) 사이토카인. 내피 활성화와 염증 반응을 촉진하며 전신적으로 발열·급성기 반응 등에 관여",why:"PDF는 TNF를 IL-1·IL-6와 함께 초기 염증성 사이토카인으로 강조합니다."},
+{g:"cytokine",label:"IL-1",q:"IL-1의 주요 기능은?",a:"염증 촉진, 발열 및 혈관 내피 활성화 등 염증 반응 유도",why:"IL-1은 TNF·IL-6와 함께 주요 pro-inflammatory cytokine입니다."},
+{g:"cytokine",label:"IL-6",q:"IL-6의 주요 기능은?",a:"염증 반응과 전신 급성기 반응(acute-phase response)에 관여",why:"PDF에서 TNF·IL-1·IL-6는 초기에 분비되는 대표 염증성 사이토카인으로 제시됩니다."},
+{g:"cytokine",label:"IL-12",q:"IL-12는 주로 어떤 세포를 활성화하며 어떤 면역반응을 연결하는가?",a:"NK cell 및 T cell을 활성화하고 IFN-γ 생성과 세포매개 면역 반응을 촉진",why:"PDF는 IL-12를 주로 세포 활성화와 연결해 강조합니다."},
+{g:"cytokine",label:"IL-10",q:"IL-10의 주요 기능과 염증 반응에서의 역할 시기는?",a:"항염증성(anti-inflammatory) 사이토카인. 대식세포·수지상세포의 염증성 활성과 사이토카인 생성을 억제해 반응을 제한하며, PDF는 후기의 진정 신호로 강조",why:"TNF·IL-1·IL-6의 염증 촉진 작용과 대비해서 암기하세요."},
+{g:"cytokine",label:"Type I IFN",q:"Type I interferon의 대표 종류와 핵심 기능은?",a:"IFN-α와 IFN-β. 바이러스 감염 주변 세포에 항바이러스 상태를 유도하고 바이러스 증식을 억제",why:"PDF는 Type I IFN을 항바이러스 반응과 연결합니다. IFN-γ는 Type II IFN입니다."},
+{g:"chemokine",label:"B cell",q:"B cell이 여포(follicle)로 이동할 때 인식하는 케모카인–수용체 조합은?",a:"CXCL13 — CXCR5",why:"PDF의 형광 강조 내용: B cell은 CXCR5를 통해 CXCL13 신호를 따라 여포로 이동합니다."},
+{g:"chemokine",label:"T cell / DC",q:"T cell과 DC가 T-cell zone으로 이동할 때 인식하는 케모카인–수용체 조합은?",a:"CCL19 및 CCL21 — CCR7",why:"PDF의 형광 강조 내용: T cell과 DC는 CCR7을 발현하고 CCL19·CCL21 신호를 따라 이동합니다."},
+{g:"chemokine",label:"역방향 회상",q:"CXCL13의 수용체와 주요 이동 대상은? ",a:"수용체: CXCR5. 주요 대상: B cell이 여포로 이동",why:"케모카인 이름만 보아도 수용체와 세포를 함께 떠올리세요."},
+{g:"chemokine",label:"역방향 회상",q:"CCL19·CCL21의 수용체와 주요 이동 대상은?",a:"수용체: CCR7. 주요 대상: T cell 및 DC가 T-cell zone으로 이동",why:"CCL19/CCL21–CCR7 축은 림프절의 T-cell zone 이동에 중요합니다."},
+{g:"macrophage",label:"Brain",q:"Brain의 조직 거주 대식세포는?",a:"Microglial cells (Microglia)",why:"PDF의 7개 조직 거주 대식세포 목록 중 뇌에 해당합니다."},
+{g:"macrophage",label:"Lung",q:"Lung의 조직 거주 대식세포는?",a:"Alveolar macrophages",why:"폐포(alveoli)에 존재하는 대식세포입니다."},
+{g:"macrophage",label:"Liver",q:"Liver의 조직 거주 대식세포는?",a:"Kupffer cells",why:"간의 조직 거주 대식세포입니다."},
+{g:"macrophage",label:"Heart",q:"Heart의 조직 거주 대식세포는?",a:"Myocardial macrophages",why:"PDF 표의 표기를 그대로 암기합니다."},
+{g:"macrophage",label:"Skin",q:"Skin의 조직 거주 대식세포는?",a:"Dermal macrophages",why:"피부 진피(dermis)에 존재하는 대식세포입니다."},
+{g:"macrophage",label:"Spleen",q:"Spleen의 조직 거주 대식세포는?",a:"Sinusoidal macrophages",why:"PDF 표에서는 비장의 세포를 sinusoidal macrophages로 표기합니다."},
+{g:"macrophage",label:"Intestines",q:"Intestines의 조직 거주 대식세포는?",a:"Lamina propria macrophages",why:"장 점막고유층(lamina propria)에 존재합니다."}
+];
+const targetMemoryKey="pnupImmunologyTargetMemoryV1";
+let targetGroup="all",targetDeck=[...targetMemoryCards],targetIndex=0,targetKnown=new Set(),targetMissed=new Set(),targetRevealed=false;
+try{const st=JSON.parse(localStorage.getItem(targetMemoryKey)||"{}");targetKnown=new Set(st.known||[]);targetMissed=new Set(st.missed||[])}catch(e){}
+function saveTargetState(){try{localStorage.setItem(targetMemoryKey,JSON.stringify({known:[...targetKnown],missed:[...targetMissed]}))}catch(e){}}
+function targetBuild(group=targetGroup,onlyMissed=false,shuffle=false){targetGroup=group;let arr=targetMemoryCards.filter(c=>(group==="all"||c.g===group)&&(!onlyMissed||targetMissed.has(c.q)));if(shuffle)arr=arr.sort(()=>Math.random()-.5);targetDeck=arr;targetIndex=0;targetRevealed=false;document.querySelectorAll("#memoryGroups [data-group]").forEach(b=>b.classList.toggle("active",b.dataset.group===group));targetRender()}
+function targetRender(){const q=document.getElementById("targetQuestion");if(!q)return;const c=targetDeck[targetIndex];const flash=document.getElementById("targetFlashcard");if(!c){flash.innerHTML='<div class="empty">선택한 범위에 남은 카드가 없습니다. 전체 카드 또는 다른 묶음을 선택하세요.</div>';document.getElementById("memoryOverview").textContent="해당 조건의 카드가 없습니다.";return}
+document.getElementById("targetGroupLabel").textContent=({tlr:"TLR",cytokine:"선천면역 사이토카인",chemokine:"케모카인·수용체",macrophage:"조직 거주 대식세포"})[c.g]+" · "+c.label;
+document.getElementById("targetPosition").textContent=(targetIndex+1)+" / "+targetDeck.length;
+q.textContent=c.q;
+const ans=document.getElementById("targetAnswer");ans.innerHTML="<b>"+c.a.replace(/\n/g,"<br>")+"</b><p class='muted'>"+c.why+"</p>";ans.classList.toggle("hidden",!targetRevealed);
+document.getElementById("targetReveal").textContent=targetRevealed?"정답 숨기기":"정답 보기";
+document.getElementById("targetProgressFill").style.width=((targetIndex+1)/targetDeck.length*100)+"%";
+const total=targetMemoryCards.length,known=targetKnown.size,missed=targetMissed.size;
+document.getElementById("memoryOverview").innerHTML="<b>전체 진행:</b> "+known+" / "+total+"개 외움 · <b>다시 볼 카드:</b> "+missed+"개 <div class='progress'><span style='width:"+(known/total*100)+"%'></span></div><p class='muted'>외움 표시는 기억 상태 기록용입니다. 언제든 다시 보기로 되돌릴 수 있습니다.</p>";
+}
+document.getElementById("memoryGroups").querySelectorAll("[data-group]").forEach(b=>b.onclick=()=>targetBuild(b.dataset.group,false,false));
+document.getElementById("targetReveal").onclick=()=>{targetRevealed=!targetRevealed;targetRender()};
+document.getElementById("targetAgain").onclick=()=>{const c=targetDeck[targetIndex];if(c){targetMissed.add(c.q);targetKnown.delete(c.q);saveTargetState()}if(targetIndex<targetDeck.length-1)targetIndex++;targetRevealed=false;targetRender()};
+document.getElementById("targetKnown").onclick=()=>{const c=targetDeck[targetIndex];if(c){targetKnown.add(c.q);targetMissed.delete(c.q);saveTargetState()}if(targetIndex<targetDeck.length-1)targetIndex++;targetRevealed=false;targetRender()};
+document.getElementById("targetPrev").onclick=()=>{if(targetDeck.length){targetIndex=(targetIndex-1+targetDeck.length)%targetDeck.length;targetRevealed=false;targetRender()}};
+document.getElementById("targetNext").onclick=()=>{if(targetDeck.length){targetIndex=(targetIndex+1)%targetDeck.length;targetRevealed=false;targetRender()}};
+document.getElementById("targetReviewMissed").onclick=()=>targetBuild(targetGroup,true,true);
+document.getElementById("targetReviewAll").onclick=()=>targetBuild(targetGroup,false,true);
+document.getElementById("memoryReset").onclick=()=>{if(confirm("이 탭의 암기 진행 상태를 초기화할까요?")){targetKnown.clear();targetMissed.clear();saveTargetState();targetBuild(targetGroup,false,false)}};
+targetBuild("all",false,false);
+
 })();
