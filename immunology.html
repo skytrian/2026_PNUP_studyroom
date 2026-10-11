@@ -128,11 +128,23 @@ async function checkImmunologyVersion(){
  el.textContent="🔄 버전 확인 중…";
  el.title="최신 버전을 확인하고 있습니다.";
  try{
-  const url=new URL("./immunology-version.json",location.href);
-  url.searchParams.set("_",Date.now().toString());
-  const response=await fetch(url.toString(),{cache:"no-store",credentials:"same-origin"});
-  if(!response.ok)throw new Error("HTTP "+response.status);
-  const data=await response.json();
+  const candidates=[
+   new URL("immunology-version.json",document.baseURI),
+   new URL("/2026_PNUP_studyroom/immunology-version.json",location.origin)
+  ];
+  let data=null,lastError=null;
+  for(const base of candidates){
+   try{
+    const url=new URL(base.href);
+    url.searchParams.set("_",Date.now().toString());
+    const response=await fetch(url.href,{cache:"no-store",credentials:"same-origin"});
+    if(!response.ok)throw new Error("HTTP "+response.status+" at "+url.pathname);
+    const parsed=await response.json();
+    if(typeof parsed.version!=="string"||!parsed.version.trim())throw new Error("Invalid version payload");
+    data=parsed;break;
+   }catch(fetchError){lastError=fetchError}
+  }
+  if(!data)throw lastError||new Error("버전 파일을 읽지 못했습니다.");
   const latest=typeof data.version==="string"?data.version.trim():"";
   if(!latest)throw new Error("버전 정보가 비어 있습니다.");
   if(latest===IMMUNOLOGY_APP_VERSION){
