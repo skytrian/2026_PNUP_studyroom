@@ -50,7 +50,7 @@
 </div>
 <div class="visual"><svg viewBox="0 0 420 260" role="img" aria-label="Flow cytometry 사분면 모식도"><rect x="74" y="22" width="300" height="190" rx="8" fill="#f8fafc" stroke="#94a3b8"/><path d="M224 22V212 M74 117H374" stroke="#94a3b8" stroke-dasharray="5 4"/><text x="145" y="46" font-size="12" fill="#64748b">Q2: Y+ / X−</text><text x="270" y="46" font-size="12" fill="#64748b">Q1: X+ / Y+</text><text x="145" y="195" font-size="12" fill="#64748b">Q3: X− / Y−</text><text x="270" y="195" font-size="12" fill="#64748b">Q4: X+ / Y−</text><text x="222" y="246" text-anchor="middle" font-size="13" font-weight="700" fill="#0f766e" id="flowXAxis">X: CD3</text><text x="18" y="117" text-anchor="middle" transform="rotate(-90 18 117)" font-size="13" font-weight="700" fill="#0f766e" id="flowYAxis">Y: CD19</text><g fill="#0d9488" opacity=".75"><circle cx="290" cy="72" r="4"/><circle cx="305" cy="83" r="4"/><circle cx="280" cy="64" r="4"/><circle cx="125" cy="155" r="4"/><circle cx="140" cy="165" r="4"/><circle cx="318" cy="166" r="4"/><circle cx="330" cy="156" r="4"/><circle cx="320" cy="177" r="4"/></g></svg></div>
 <p id="flowInterpretation" class="mock-feedback">CD3와 CD19를 함께 사용하면 T cell과 B cell 집단을 구분하는 기본 패널을 만들 수 있습니다. 점 하나는 보통 측정된 세포 하나를 나타냅니다.</p>
-<div class="actions"><button class="btn primary" id="flowCheck">축 조합 해석</button></div><p class="footnote">주의: CD3/CD19 그래프의 사분면은 각 마커의 양성 방향과 게이트 기준에 따라 해석합니다. 사분면 번호만 외우지 마세요.</p></div>
+<div class="actions"><button type="button" class="btn primary" id="flowCheck" onclick="window.interpretFlowAxes && window.interpretFlowAxes()">축 조합 해석</button></div><p class="footnote">주의: CD3/CD19 그래프의 사분면은 각 마커의 양성 방향과 게이트 기준에 따라 해석합니다. 사분면 번호만 외우지 마세요.</p></div>
 <div class="card"><h3>4. 1분 개념 확인</h3><p id="rapidQuestion" class="flashq">Chemokine 신호가 백혈구의 integrin에 주는 핵심 효과는?</p><div id="rapidOptions" class="options"><label class="option"><input type="radio" name="rapid" value="a"> Selectin을 분해한다</label><label class="option"><input type="radio" name="rapid" value="b"> Integrin을 고친화성 상태로 전환한다</label><label class="option"><input type="radio" name="rapid" value="c"> MHC II 발현을 완전히 억제한다</label><label class="option"><input type="radio" name="rapid" value="d"> 항체의 Fab를 절단한다</label></div><button class="btn primary" id="rapidCheck">정답 확인</button><div id="rapidFeedback" aria-live="polite"></div></div>
 <div class="card"><h3>5. 시험에서 자주 헷갈리는 함정</h3><ul class="bullet"><li>적응면역은 반복 노출에서 일반적으로 더 빠르고 강한 기억 반응을 보입니다. “반복 노출 시 반응이 감소한다”는 문장은 기본 원리를 묻는 경우 틀립니다.</li><li>Naive T cell priming의 대표적인 전문 APC는 dendritic cell입니다. 모든 APC가 같은 수준으로 naive T cell을 활성화하는 것은 아닙니다.</li><li>TLR7/8은 ssRNA를 인식하는 대표적인 endosomal TLR이고, TLR3은 dsRNA, TLR4는 LPS, TLR5는 flagellin과 연결됩니다.</li><li>보체는 opsonization, 염증 촉진, 일부 병원체의 막 공격 복합체(MAC)에 의한 용해 등에 관여합니다. 세균 세포벽을 직접 효소적으로 용해하는 것과는 구별하세요.</li><li>Western blot은 단백질을 전기영동으로 분리하고 membrane으로 옮긴 뒤 항체로 특정 단백질을 검출합니다.</li><li>Flow cytometry는 마커 조합으로 세포 집단을 분리합니다. 단일 마커만으로 모든 조직 세포를 특정할 수 있다고 가정하지 마세요.</li></ul></div>
 </section>
@@ -148,9 +148,9 @@ $("allCards").onclick=()=>{showAll=true;$("allCards").classList.add("active");$(
 $("starCards").onclick=()=>{showAll=false;$("starCards").classList.add("active");$("allCards").classList.remove("active");idx=0;buildDeck()};
 $("startSaved").onclick=()=>{const savedCards=cards.filter(c=>stars.has(cardKey(c)));if(!savedCards.length){alert("별표 저장한 단답형 카드가 없습니다. 요약 내용은 아래 목록에서 확인할 수 있습니다.");return}deck=savedCards;idx=0;document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x.dataset.panel==="memorize"));document.querySelectorAll(".panel").forEach(x=>x.classList.toggle("active",x.id==="memorize"));renderCard()};
 renderSummary();renderQuizChapters();buildDeck();renderSaved();
-</script><script src="immunology-extras.js?v=2026.10.12.1.2"></script>
+</script><script src="immunology-extras.js?v=2026.10.12.1.3"></script>
 <script>
-const IMMUNOLOGY_APP_VERSION="2026.10.12.1.2";
+const IMMUNOLOGY_APP_VERSION="2026.10.12.1.3";
 let immunologyVersionState="checking";
 async function checkImmunologyVersion(){
  const el=document.getElementById("appVersionStatus");
@@ -221,6 +221,7 @@ setInterval(checkImmunologyVersion,300000);
   else msg+="양성/음성 조합을 이용해 세포 아형을 구분합니다. 이 마커 조합만으로 특정 아형을 단정할 수 있는지 강의 맥락을 확인하세요.";
   out.textContent=msg;out.className="mock-feedback";
  }
+ window.interpretFlowAxes=interpret;
  $("flowCheck")?.addEventListener("click",interpret);x?.addEventListener("change",()=>{if(x.value===y.value)y.value=y.querySelector("option:not([value='"+x.value+"'])")?.value||"CD19";interpret()});y?.addEventListener("change",()=>{if(x.value===y.value)x.value=x.querySelector("option:not([value='"+y.value+"'])")?.value||"CD3";interpret()});
  $("rapidCheck")?.addEventListener("click",()=>{const selected=document.querySelector('input[name="rapid"]:checked');const box=$("rapidFeedback");if(!selected){box.textContent="보기를 먼저 선택하세요.";return}box.className="mock-feedback "+(selected.value==="b"?"":"wrong");box.textContent=selected.value==="b"?"정답입니다. Chemokine 신호는 integrin inside-out signaling을 유도해 친화도/결합 능력을 높이고 firm adhesion을 돕습니다.":"다시 생각해 보세요. Rolling 다음 단계에서 백혈구가 내피에 단단히 붙을 수 있게 하는 신호를 고르세요."});
  interpret();
