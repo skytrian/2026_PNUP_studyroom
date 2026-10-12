@@ -50,7 +50,7 @@
 </div>
 <div class="visual"><svg viewBox="0 0 420 260" role="img" aria-label="Flow cytometry 사분면 모식도"><rect x="74" y="22" width="300" height="190" rx="8" fill="#f8fafc" stroke="#94a3b8"/><path d="M224 22V212 M74 117H374" stroke="#94a3b8" stroke-dasharray="5 4"/><text x="145" y="46" font-size="12" fill="#64748b">Q2: Y+ / X−</text><text x="270" y="46" font-size="12" fill="#64748b">Q1: X+ / Y+</text><text x="145" y="195" font-size="12" fill="#64748b">Q3: X− / Y−</text><text x="270" y="195" font-size="12" fill="#64748b">Q4: X+ / Y−</text><text x="222" y="246" text-anchor="middle" font-size="13" font-weight="700" fill="#0f766e" id="flowXAxis">X: CD3</text><text x="18" y="117" text-anchor="middle" transform="rotate(-90 18 117)" font-size="13" font-weight="700" fill="#0f766e" id="flowYAxis">Y: CD19</text><g fill="#0d9488" opacity=".75"><circle cx="290" cy="72" r="4"/><circle cx="305" cy="83" r="4"/><circle cx="280" cy="64" r="4"/><circle cx="125" cy="155" r="4"/><circle cx="140" cy="165" r="4"/><circle cx="318" cy="166" r="4"/><circle cx="330" cy="156" r="4"/><circle cx="320" cy="177" r="4"/></g></svg></div>
 <p id="flowInterpretation" class="mock-feedback">CD3와 CD19를 함께 사용하면 T cell과 B cell 집단을 구분하는 기본 패널을 만들 수 있습니다. 점 하나는 보통 측정된 세포 하나를 나타냅니다.</p>
-<div class="actions"><button type="button" class="btn primary" id="flowCheck" onclick="(function(){var x=document.getElementById('flowX'),y=document.getElementById('flowY'),ix=document.getElementById('flowXAxis'),iy=document.getElementById('flowYAxis'),out=document.getElementById('flowInterpretation');if(!x||!y||!ix||!iy||!out){alert('축 해석 요소를 찾을 수 없습니다. 페이지를 새로고침해 주세요.');return}ix.textContent='X: '+x.value;iy.textContent='Y: '+y.value;if(x.value===y.value){out.textContent='같은 마커를 두 축에 두면 독립적인 두 세포 특성을 비교할 수 없습니다. 서로 다른 마커를 선택하세요.';out.className='mock-feedback wrong';return}var m='X축은 '+x.value+', Y축은 '+y.value+'입니다. 오른쪽은 '+x.value+' 양성, 위쪽은 '+y.value+' 양성입니다. ';if([x.value,y.value].includes('CD3')&&[x.value,y.value].includes('CD19'))m+='CD3⁺CD19⁻ 집단은 주로 T cell, CD3⁻CD19⁺ 집단은 주로 B cell로 해석합니다. CD3⁺CD19⁺ 또는 이중 음성 집단은 실험 맥락과 게이트를 확인해야 합니다.';else if([x.value,y.value].includes('CD4')&&[x.value,y.value].includes('CD8'))m+='CD3⁺ T cell 게이트 안에서 CD4⁺CD8⁻는 주로 helper T, CD4⁻CD8⁺는 주로 cytotoxic T 집단과 연결됩니다. CD4/CD8만으로 T cell임을 단정하기보다 CD3 등과 함께 해석하세요.';else m+='양성/음성 조합을 이용해 세포 아형을 구분합니다. 이 마커 조합만으로 특정 아형을 단정할 수 있는지 강의 맥락을 확인하세요.';out.textContent=m;out.className='mock-feedback'})()">축 조합 해석</button></div><p class="footnote">주의: CD3/CD19 그래프의 사분면은 각 마커의 양성 방향과 게이트 기준에 따라 해석합니다. 사분면 번호만 외우지 마세요.</p></div>
+<div class="actions"><button type="button" class="btn primary" id="flowCheck" onclick="(function(){var x=document.getElementById('flowX'),y=document.getElementById('flowY'),ix=document.getElementById('flowXAxis'),iy=document.getElementById('flowYAxis'),out=document.getElementById('flowInterpretation');if(!x||!y||!ix||!iy||!out){alert('축 해석 요소를 찾을 수 없습니다. 페이지를 새로고침해 주세요.');return}ix.textContent='X: '+x.value;iy.textContent='Y: '+y.value;if(x.value===y.value){out.textContent='같은 마커를 두 축에 두면 독립적인 두 세포 특성을 비교할 수 없습니다. 서로 다른 마커를 선택하세요.';out.className='mock-feedback wrong';return}var m='X축은 '+x.value+', Y축은 '+y.value+'입니다. 오른쪽은 '+x.value+' 양성, 위쪽은 '+y.value+' 양성입니다. ';if([x.value,y.value].includes('CD3')&&[x.value,y.value].includes('CD19'))m+='CD3⁺CD19⁻ 집단은 주로 T cell, CD3⁻CD19⁺ 집단은 주로 B cell로 해석합니다. CD3⁺CD19⁺ 또는 이중 음성 집단은 실험 맥락과 게이트를 확인해야 합니다.';else if([x.value,y.value].includes('CD4')&&[x.value,y.value].includes('CD8'))m+='CD3⁺ T cell 게이트 안에서 CD4⁺CD8⁻는 주로 helper T, CD4⁻CD8⁺는 주로 cytotoxic T 집단과 연결됩니다. CD4/CD8만으로 T cell임을 단정하기보다 CD3 등과 함께 해석하세요.';else m+='양성/음성 조합을 이용해 세포 아형을 구분합니다. 이 마커 조합만으로 특정 아형을 단정할 수 있는지 강의 맥락을 확인하세요.';out.textContent=m;out.className='mock-feedback';alert(m)})()">축 조합 해석</button></div><p class="footnote">주의: CD3/CD19 그래프의 사분면은 각 마커의 양성 방향과 게이트 기준에 따라 해석합니다. 사분면 번호만 외우지 마세요.</p></div>
 <div class="card"><h3>4. 1분 개념 확인</h3><p id="rapidQuestion" class="flashq">Chemokine 신호가 백혈구의 integrin에 주는 핵심 효과는?</p><div id="rapidOptions" class="options"><label class="option"><input type="radio" name="rapid" value="a"> Selectin을 분해한다</label><label class="option"><input type="radio" name="rapid" value="b"> Integrin을 고친화성 상태로 전환한다</label><label class="option"><input type="radio" name="rapid" value="c"> MHC II 발현을 완전히 억제한다</label><label class="option"><input type="radio" name="rapid" value="d"> 항체의 Fab를 절단한다</label></div><button class="btn primary" id="rapidCheck">정답 확인</button><div id="rapidFeedback" aria-live="polite"></div></div>
 <div class="card"><h3>5. 시험에서 자주 헷갈리는 함정</h3><ul class="bullet"><li>적응면역은 반복 노출에서 일반적으로 더 빠르고 강한 기억 반응을 보입니다. “반복 노출 시 반응이 감소한다”는 문장은 기본 원리를 묻는 경우 틀립니다.</li><li>Naive T cell priming의 대표적인 전문 APC는 dendritic cell입니다. 모든 APC가 같은 수준으로 naive T cell을 활성화하는 것은 아닙니다.</li><li>TLR7/8은 ssRNA를 인식하는 대표적인 endosomal TLR이고, TLR3은 dsRNA, TLR4는 LPS, TLR5는 flagellin과 연결됩니다.</li><li>보체는 opsonization, 염증 촉진, 일부 병원체의 막 공격 복합체(MAC)에 의한 용해 등에 관여합니다. 세균 세포벽을 직접 효소적으로 용해하는 것과는 구별하세요.</li><li>Western blot은 단백질을 전기영동으로 분리하고 membrane으로 옮긴 뒤 항체로 특정 단백질을 검출합니다.</li><li>Flow cytometry는 마커 조합으로 세포 집단을 분리합니다. 단일 마커만으로 모든 조직 세포를 특정할 수 있다고 가정하지 마세요.</li></ul></div>
 </section>
@@ -245,3 +245,25 @@ setInterval(checkImmunologyVersion,300000);
 })();
 </script>
 </body></html>
+
+<script>
+/* Flow cytometry 축 조합 해설의 이중 안전장치 */
+(function(){
+  var btn=document.getElementById('flowCheck');
+  if(!btn || btn.dataset.flowPopupBound==='1') return;
+  btn.dataset.flowPopupBound='1';
+  btn.addEventListener('click',function(){
+    var x=document.getElementById('flowX'), y=document.getElementById('flowY');
+    var out=document.getElementById('flowInterpretation');
+    if(!x||!y||!out) { window.alert('축 조합 해설 영역을 찾지 못했습니다. 페이지를 강력 새로고침해 주세요.'); return; }
+    var msg='X축: '+x.value+' / Y축: '+y.value+'\n\n';
+    if(x.value===y.value) msg+='두 축에 같은 마커가 선택되어 있습니다. 서로 다른 마커를 선택해야 독립적인 두 특성을 비교할 수 있습니다.';
+    else if([x.value,y.value].includes('CD3')&&[x.value,y.value].includes('CD19')) msg+='CD3⁺CD19⁻ 집단은 주로 T cell, CD3⁻CD19⁺ 집단은 주로 B cell로 해석합니다. 이중 양성·이중 음성 집단은 게이트와 실험 맥락을 확인하세요.';
+    else if([x.value,y.value].includes('CD4')&&[x.value,y.value].includes('CD8')) msg+='CD3⁺ T cell 게이트 안에서 CD4⁺CD8⁻는 주로 helper T, CD4⁻CD8⁺는 주로 cytotoxic T 집단과 연결됩니다. CD3 게이트 없이 CD4/CD8만으로 T cell이라고 단정하지 마세요.';
+    else msg+='오른쪽은 X축 마커 양성, 위쪽은 Y축 마커 양성입니다. 각 사분면의 양성·음성 조합과 함께 다른 표지자 및 게이트 조건을 확인하세요.';
+    out.textContent=msg.replace('\n',' ').replace('\n',' ');
+    out.className='mock-feedback'+(x.value===y.value?' wrong':'');
+    window.alert(msg);
+  });
+})();
+</script>
