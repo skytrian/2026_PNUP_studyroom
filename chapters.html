@@ -151,8 +151,9 @@ function quizExplanation(n,showClass=true){
   const d=info(n);
   return '<div class="drug-explanation"><div class="drug-explanation-head"><div><div class="drug-explanation-name">'+escapeHtml(n)+'</div>'+(showClass?'<span class="drug-explanation-class">'+escapeHtml(d[1])+'</span>':'')+'</div></div>'+memoryCore(n)+'</div>';
 }
+const imageCids={"Carvedilol":"2585","Labetalol":"3869","Hydralazine":"3637","Minoxidil":"4201"};
 const imageAliases={"Etidronate":"Etidronic acid","Trichlormethiazide":"Trichloromethiazide","Acetaminophen":"Acetaminophen","Captopril":"Captopril","Enalapril":"Enalapril","Enalaprilat":"Enalaprilat","Fosinopril":"Fosinopril","Fosinoprilat":"Fosinoprilat","Lisinopril":"Lisinopril","Losartan":"Losartan","Telmisartan":"Telmisartan","Candesartan":"Candesartan","Olmesartan":"Olmesartan","Pravastatin":"Pravastatin","Simvastatin":"Simvastatin","Atorvastatin":"Atorvastatin","Rosuvastatin":"Rosuvastatin","Clofibrate":"Clofibrate","Gemfibrozil":"Gemfibrozil","Ezetimibe":"Ezetimibe","Phenformin":"Phenformin","Metformin":"Metformin","Ibuprofen":"Ibuprofen","Sulindac":"Sulindac","Phenylbutazone":"Phenylbutazone","Celecoxib":"Celecoxib"};
-function img(n){const q=imageAliases[n]||n;return "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/"+encodeURIComponent(q)+"/PNG?record_type=2d"}
+function img(n){if(imageCids[n])return "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/"+imageCids[n]+"/PNG?record_type=2d&image_size=large";const q=imageAliases[n]||n;return "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/"+encodeURIComponent(q)+"/PNG?record_type=2d"}
 
 /* 구조 이미지 이중 경로: PubChem 실패 시 NCI/CADD로 자동 전환 */
 function drugImageError(e){
