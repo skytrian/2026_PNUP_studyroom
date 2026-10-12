@@ -1,16 +1,27 @@
-# Pharmacology Structure Recall Lab
+# MedChem Study - PNUP / PNUP Study Hub
 
-약물 구조를 보고 **약물명 → 용도 → 약물표적 → 작용양식(MOA)**을 반복 회상하는 학습용 GitHub Pages입니다.
+부산대학교 약학대학 학습용 GitHub Pages입니다. 면역학과 의약화학 학습 페이지를 한 곳에서 제공합니다.
 
-## 기능
-- PubChem PUG REST에서 약물 구조 PNG를 브라우저에서 호출
-- 구조만 보고 약물명을 회상하는 퀴즈
-- 정답 공개 후 용도/표적/MOA 확인
-- 전체 약물 DB 검색 및 계열 필터
-- '알고 있었다/몰랐다'를 기록하고 localStorage 기반 복습 큐 제공
-- 모바일/PC 반응형
+## 학습 페이지
+- **Study Hub:** https://skytrian.github.io/2026_PNUP_studyroom/
+- **면역학:** https://skytrian.github.io/2026_PNUP_studyroom/immunology.html
+- **의약화학:** https://skytrian.github.io/2026_PNUP_studyroom/chapters.html
 
-## GitHub Pages
-Repository의 **Settings → Pages → Source: GitHub Actions**로 설정하면 `.github/workflows/pages.yml`이 사이트를 배포합니다.
+## 주요 기능
+- 면역학: Chapter 요약, 단답형 암기 카드, 별표 저장, 복습
+- 의약화학: Chapter 18–26 구조 기반 퀴즈, 단계별 학습, 약물 도감·SAR, 기출필수 문제
+- 학습 기록은 브라우저의 localStorage에 저장되며 과목별로 분리됩니다.
 
-> 학습용 요약입니다. 실제 처방·투약 판단의 근거로 사용하지 마세요.
+## 버전 규칙
+페이지 버전은 `YYYY.MM.DD.MAJOR.MINOR` 형식을 사용합니다.
+- `YYYY.MM.DD`: 마지막 배포 날짜
+- `MAJOR`: 호환성이 깨지는 변경 또는 큰 구조 개편
+- `MINOR`: 기능 추가·오류 수정 등 일반 업데이트
+
+페이지 코드를 수정해 배포할 때마다 해당 페이지의 버전 상수와 버전 JSON 파일을 함께 갱신합니다. 의약화학은 `version.json`, 면역학은 `immunology-version.json`을 기준으로 버전을 확인합니다. 버전 확인 요청에는 캐시 방지 쿼리를 사용하고, 새 버전이 감지되면 버전이 포함된 URL로 페이지를 다시 엽니다.
+
+## 배포
+GitHub Pages는 저장소의 Pages 설정 및 workflow를 통해 배포됩니다. 배포 직후 CDN 반영까지 잠시 시간이 걸릴 수 있습니다.
+
+## 주의
+학습용 자료이며 실제 처방·투약 판단의 근거로 사용하지 마세요.
