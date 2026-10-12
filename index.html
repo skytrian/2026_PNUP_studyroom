@@ -7,9 +7,40 @@
 header{max-width:1050px;margin:auto;padding:58px 24px 24px}header .eyebrow{font-size:13px;letter-spacing:.14em;font-weight:800;color:var(--blue);text-transform:uppercase}h1{font-size:clamp(32px,6vw,52px);letter-spacing:-.04em;margin:12px 0}header p{color:var(--muted);line-height:1.7;max-width:680px}
 main{max-width:1050px;margin:auto;padding:20px 24px 70px}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.card{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:0 16px 40px #1720330b;display:flex;flex-direction:column;min-height:300px}.symbol{width:58px;height:58px;border-radius:17px;display:grid;place-items:center;font-size:28px;background:#eaf0ff}.card.immun .symbol{background:#e0f7f1}.card h2{font-size:25px;margin:20px 0 8px}.card p{color:var(--muted);line-height:1.7;margin:0 0 20px}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}.tag{font-size:12px;background:#f1f5f9;border-radius:999px;padding:6px 10px;color:#475569}.link{margin-top:auto;text-decoration:none;background:var(--blue);color:white;text-align:center;padding:13px 16px;border-radius:12px;font-weight:750}.immun .link{background:var(--teal)}.link:hover{filter:brightness(.95)}footer{max-width:1050px;margin:auto;padding:0 24px 28px;color:var(--muted);font-size:13px}
 @media(max-width:680px){header{padding-top:38px}.cards{grid-template-columns:1fr}.card{min-height:270px;padding:23px}}
+
+/* Creator credit + double-click live video */
+.creator-credit{max-width:1050px;margin:28px auto 0;padding:18px 24px 30px;text-align:center;color:var(--muted);font-size:13px;line-height:1.9}
+.creator-name{font-weight:800;color:var(--ink);cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px}
+.creator-email{color:inherit}
+.live-video-modal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(9,15,28,.82)}
+.live-video-modal.open{display:flex}
+.live-video-dialog{position:relative;width:min(960px,100%);background:#0b1020;border-radius:16px;padding:12px;box-shadow:0 24px 80px rgba(0,0,0,.45)}
+.live-video-close{display:block;margin:0 0 10px auto;border:0;border-radius:9px;background:#fff;color:#172033;padding:9px 13px;font-weight:800;cursor:pointer}
+.live-video-frame{width:100%;aspect-ratio:16/9;border:0;border-radius:10px;display:block}
+
 </style></head><body>
 <header><div class="eyebrow">Pusan National University · Study Hub</div><h1>무엇을 공부할까요?</h1><p>과목별 학습 공간을 분리했습니다. 원하는 과목을 선택해 해당 학습 페이지로 이동하세요. 각 과목의 학습 기록과 즐겨찾기는 서로 독립적으로 관리됩니다.</p></header>
 <main><section class="cards" aria-label="과목 선택">
 <article class="card immun"><div class="symbol">🧬</div><h2>면역학</h2><p>Chapter 1–5 핵심 개념 요약, 필수 영문 용어 단답형 암기, 별표 저장, 예상 응용 문제로 복습합니다.</p><div class="tags"><span class="tag">Ch 1–5 요약</span><span class="tag">단답형 암기</span><span class="tag">별표 저장</span></div><a class="link" href="immunology.html">면역학 학습 시작 →</a></article>
 <article class="card"><div class="symbol">💊</div><h2>의약화학</h2><p>기존 약물 구조 학습, 단계별 퀴즈, 복습 기록과 약물 도감을 이용해 학습을 이어갑니다.</p><div class="tags"><span class="tag">Chapter 18–26</span><span class="tag">구조 퀴즈</span><span class="tag">약물 도감</span></div><a class="link" href="chapters.html">의약화학 학습 시작 →</a></article>
-</section></main><footer>MedChem Study - PNUP · 부산대학교 약학대학</footer></body></html>
+</section></main><footer>MedChem Study - PNUP</footer>
+<div class="creator-credit"><div>제작 · 부산대학교 약학대학 <span class="creator-name" id="creatorName" title="더블클릭하면 Vaundy 라이브 영상이 재생됩니다">김민성</span></div><div>Email : <a class="creator-email" href="mailto:skytrian@pusan.ac.kr">skytrian@pusan.ac.kr</a></div></div>
+
+<div class="live-video-modal" id="creatorLiveModal" role="dialog" aria-modal="true" aria-label="Vaundy 라이브 영상">
+ <div class="live-video-dialog"><button type="button" class="live-video-close" id="creatorLiveClose">닫기 ✕</button>
+  <iframe class="live-video-frame" id="creatorLiveFrame" title="Vaundy 라이브 영상" src="about:blank" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+ </div>
+</div>
+<script>
+(function(){
+ const name=document.getElementById("creatorName"),modal=document.getElementById("creatorLiveModal"),frame=document.getElementById("creatorLiveFrame"),close=document.getElementById("creatorLiveClose");
+ if(!name||!modal||!frame||!close)return;
+ const video="https://www.youtube-nocookie.com/embed/_JdiIp92rYk?autoplay=1&playsinline=1";
+ function openVideo(){frame.src=video;modal.classList.add("open");document.body.style.overflow="hidden";close.focus();}
+ function closeVideo(){modal.classList.remove("open");frame.src="about:blank";document.body.style.overflow="";}
+ name.addEventListener("dblclick",openVideo);
+ close.addEventListener("click",closeVideo);
+ modal.addEventListener("click",function(e){if(e.target===modal)closeVideo();});
+ document.addEventListener("keydown",function(e){if(e.key==="Escape"&&modal.classList.contains("open"))closeVideo();});
+})();
+</script></body></html>
