@@ -17,6 +17,9 @@
 .live-video-close{display:block;margin:0 0 10px auto;border:0;border-radius:9px;background:#fff;color:#172033;padding:9px 13px;font-weight:800;cursor:pointer}
 .live-video-frame{width:100%;aspect-ratio:16/9;border:0;border-radius:10px;display:block}
 
+
+/* Creator credit + double-click live video */
+.creator-credit{max-width:1100px;margin:28px auto 0;padding:18px 24px 30px;text-align:center;color:var(--muted,#64748b);font-size:13px;line-height:1.9}.creator-name{font-weight:800;color:var(--text,var(--ink,#172033));cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px}.creator-email{color:inherit}.live-video-modal{position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(9,15,28,.82)}.live-video-modal.open{display:flex}.live-video-dialog{position:relative;width:min(960px,100%);background:#0b1020;border-radius:16px;padding:12px;box-shadow:0 24px 80px rgba(0,0,0,.45)}.live-video-close{display:block;margin:0 0 10px auto;border:0;border-radius:9px;background:#fff;color:#172033;padding:9px 13px;font-weight:800;cursor:pointer}.live-video-frame{width:100%;aspect-ratio:16/9;border:0;border-radius:10px;display:block}
 </style></head><body>
 <nav class="top"><div class="topin"><a class="brand" href="index.html">PNUP <span>Study Hub</span></a><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><a class="back" href="index.html">← 과목 선택</a><button id="appVersionStatus" class="app-version-status" type="button" title="버전 확인 및 새로고침">🔄 버전 확인 중…</button></div></div></nav>
 <main class="wrap">
@@ -203,4 +206,8 @@ setInterval(checkImmunologyVersion,300000);
  modal.addEventListener("click",function(e){if(e.target===modal)closeVideo();});
  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&modal.classList.contains("open"))closeVideo();});
 })();
-</script></body></html>
+</script>
+<footer class="creator-credit"><div><strong>제작 · 부산대학교 약학대학 <span class="creator-name" id="creatorName" title="더블클릭하면 라이브 영상이 재생됩니다">김민성</span></strong></div><div>Email : <a class="creator-email" href="mailto:skytrian@pusan.ac.kr">skytrian@pusan.ac.kr</a></div><div style="font-size:11px;opacity:.8">이름을 더블클릭하면 라이브 영상이 팝업으로 재생됩니다.</div></footer>
+<div class="live-video-modal" id="creatorLiveModal" role="dialog" aria-modal="true" aria-label="라이브 영상"><div class="live-video-dialog"><button type="button" class="live-video-close" id="creatorLiveClose">닫기 ✕</button><iframe class="live-video-frame" id="creatorLiveFrame" title="라이브 영상" src="about:blank" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div></div>
+<script>(function(){const name=document.getElementById("creatorName"),modal=document.getElementById("creatorLiveModal"),frame=document.getElementById("creatorLiveFrame"),close=document.getElementById("creatorLiveClose");if(!name||!modal||!frame||!close)return;const video="https://www.youtube-nocookie.com/embed/_JdiIp92rYk?autoplay=1&playsinline=1";function openVideo(){frame.src=video;modal.classList.add("open");document.body.style.overflow="hidden";close.focus()}function closeVideo(){modal.classList.remove("open");frame.src="about:blank";document.body.style.overflow=""}name.addEventListener("dblclick",openVideo);close.addEventListener("click",closeVideo);modal.addEventListener("click",function(e){if(e.target===modal)closeVideo()});document.addEventListener("keydown",function(e){if(e.key==="Escape"&&modal.classList.contains("open"))closeVideo()})})();</script>
+</body></html>
