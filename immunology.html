@@ -140,6 +140,23 @@ function updateCardStar(){const c=deck[idx];if(!c)return;const yes=stars.has(car
 function renderQuizChapters(){chapterButtons("quizChapters",quizCh,n=>{quizCh=n;idx=0;renderQuizChapters();buildDeck()})}
 function renderSaved(){const box=$("savedList");const items=[];for(const k of stars){if(k.startsWith("s|")){const [,ch,title]=k.split("|");const s=chapters[ch]?.sections.find(x=>x.title===title);if(s)items.push({type:"section",ch:Number(ch),title,body:s.body,key:k})}else{const c=cards.find(c=>cardKey(c)===k);if(c)items.push({type:"card",ch:c.ch,title:c.q,body:c.a+" — "+c.why,key:k})}}if(!items.length){box.innerHTML='<div class="empty">저장한 항목이 없습니다.<br>요약 탭의 별표 또는 단답형 카드의 ☆를 눌러 저장하세요.</div>';return}box.innerHTML=items.map(it=>'<article class="card"><div class="qmeta"><span>Ch '+it.ch+' · '+chapters[it.ch].title+'</span><button class="star saved" data-remove="'+encodeURIComponent(it.key)+'">★</button></div><h3>'+it.title+'</h3><p>'+it.body+'</p></article>').join("");box.querySelectorAll("[data-remove]").forEach(b=>b.onclick=()=>{stars.delete(decodeURIComponent(b.dataset.remove));localStorage.setItem(KEY,JSON.stringify([...stars]));renderSaved();renderSummary();updateCardStar()})}
 document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x===b));document.querySelectorAll(".panel").forEach(x=>x.classList.toggle("active",x.id===b.dataset.panel));if(b.dataset.panel==="saved")renderSaved()});
+function interpretFlowAxes(){
+ const x=document.getElementById("flowX"),y=document.getElementById("flowY");
+ const ix=document.getElementById("flowXAxis"),iy=document.getElementById("flowYAxis"),out=document.getElementById("flowInterpretation");
+ if(!x||!y||!ix||!iy||!out)return;
+ ix.textContent="X: "+x.value;iy.textContent="Y: "+y.value;
+ if(x.value===y.value){out.textContent="같은 마커를 두 축에 두면 독립적인 두 세포 특성을 비교할 수 없습니다. 서로 다른 마커를 선택하세요.";out.className="mock-feedback wrong";return}
+ let msg="X축은 "+x.value+", Y축은 "+y.value+"입니다. 오른쪽은 "+x.value+" 양성, 위쪽은 "+y.value+" 양성입니다. ";
+ if([x.value,y.value].includes("CD3")&&[x.value,y.value].includes("CD19"))msg+="CD3⁺CD19⁻ 집단은 주로 T cell, CD3⁻CD19⁺ 집단은 주로 B cell로 해석합니다. CD3⁺CD19⁺ 또는 이중 음성 집단은 실험 맥락과 게이트를 확인해야 합니다.";
+ else if([x.value,y.value].includes("CD4")&&[x.value,y.value].includes("CD8"))msg+="CD3⁺ T cell 게이트 안에서 CD4⁺CD8⁻는 주로 helper T, CD4⁻CD8⁺는 주로 cytotoxic T 집단과 연결됩니다. CD4/CD8만으로 T cell임을 단정하기보다 CD3 등과 함께 해석하세요.";
+ else msg+="양성/음성 조합을 이용해 세포 아형을 구분합니다. 이 마커 조합만으로 특정 아형을 단정할 수 있는지 강의 맥락을 확인하세요.";
+ out.textContent=msg;out.className="mock-feedback";
+}
+window.interpretFlowAxes=interpretFlowAxes;
+document.getElementById("flowCheck")?.addEventListener("click",interpretFlowAxes);
+document.getElementById("flowX")?.addEventListener("change",interpretFlowAxes);
+document.getElementById("flowY")?.addEventListener("change",interpretFlowAxes);
+
 $("reveal").onclick=()=>{$("answer").classList.toggle("hidden");$("reveal").textContent=$("answer").classList.contains("hidden")?"정답 보기":"정답 숨기기"};
 $("prev").onclick=()=>{if(deck.length){idx=(idx-1+deck.length)%deck.length;renderCard()}};
 $("next").onclick=()=>{if(deck.length){idx=(idx+1)%deck.length;renderCard()}};
@@ -148,9 +165,9 @@ $("allCards").onclick=()=>{showAll=true;$("allCards").classList.add("active");$(
 $("starCards").onclick=()=>{showAll=false;$("starCards").classList.add("active");$("allCards").classList.remove("active");idx=0;buildDeck()};
 $("startSaved").onclick=()=>{const savedCards=cards.filter(c=>stars.has(cardKey(c)));if(!savedCards.length){alert("별표 저장한 단답형 카드가 없습니다. 요약 내용은 아래 목록에서 확인할 수 있습니다.");return}deck=savedCards;idx=0;document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x.dataset.panel==="memorize"));document.querySelectorAll(".panel").forEach(x=>x.classList.toggle("active",x.id==="memorize"));renderCard()};
 renderSummary();renderQuizChapters();buildDeck();renderSaved();
-</script><script src="immunology-extras.js?v=2026.10.12.1.3"></script>
+</script><script src="immunology-extras.js?v=2026.10.12.1.4"></script>
 <script>
-const IMMUNOLOGY_APP_VERSION="2026.10.12.1.3";
+const IMMUNOLOGY_APP_VERSION="2026.10.12.1.4";
 let immunologyVersionState="checking";
 async function checkImmunologyVersion(){
  const el=document.getElementById("appVersionStatus");
