@@ -85,7 +85,7 @@ const groups=[{"id":"18","title":"강심제 · 협심증 · 부정맥 치료제"
 const targetDisplayMap={"β1-adrenergic receptor":"β1-AR (β1-adrenergic receptor)","Voltage-gated Na+ channel":"VGSC (voltage-gated sodium channel)","NO–cGMP pathway / soluble guanylyl cyclase":"sGC (soluble guanylyl cyclase) / NO–cGMP pathway","Carbonic anhydrase":"CA (carbonic anhydrase)","NCC (Na+/Cl− cotransporter)":"NCC (Na+/Cl− cotransporter)","NKCC2 (Na+/K+/2Cl− cotransporter)":"NKCC2 (Na+/K+/2Cl− cotransporter 2)","NKCC2":"NKCC2 (Na+/K+/2Cl− cotransporter 2)","ENaC":"ENaC (epithelial sodium channel)","ACE":"ACE (angiotensin-converting enzyme)","AT1 receptor":"AT1R (angiotensin II type 1 receptor)","L-type Ca2+ channel":"LTCC (L-type voltage-gated calcium channel)","ATP-sensitive K+ channel":"KATP channel (ATP-sensitive potassium channel)","β1/β2 + α1 adrenergic receptors":"β1/β2-AR + α1-AR (β1/β2- and α1-adrenergic receptors)","HMG-CoA reductase":"HMG-CoA reductase (3-hydroxy-3-methylglutaryl-coenzyme A reductase)","NPC1L1":"NPC1L1 (NPC1-like intracellular cholesterol transporter 1)","PPARα":"PPARα (peroxisome proliferator-activated receptor alpha)","GPR109A (HM74A)":"GPR109A/HM74A (G protein-coupled receptor 109A)","Vitamin K epoxide reductase (VKORC1)":"VKORC1 (vitamin K epoxide reductase complex subunit 1)","Thrombin (factor IIa)":"thrombin (factor IIa)","P2Y12 ADP receptor":"P2Y12 receptor (P2Y12 ADP receptor)","PDE3":"PDE3 (phosphodiesterase 3)","PDE + ENT":"PDEs + ENTs (phosphodiesterases + equilibrative nucleoside transporters)","GPIIb/IIIa integrin":"GPIIb/IIIa (glycoprotein IIb/IIIa integrin)","Sulfonylurea receptor / KATP channel":"SUR1/KATP channel (sulfonylurea receptor 1 / ATP-sensitive potassium channel)","KATP channel (SUR1)":"SUR1/KATP channel (sulfonylurea receptor 1 / ATP-sensitive potassium channel)","PPARγ":"PPARγ (peroxisome proliferator-activated receptor gamma)","Mitochondrial complex I / AMPK-related pathways":"mitochondrial complex I / AMPK (AMP-activated protein kinase)-related pathways","DPP-4":"DPP-4 (dipeptidyl peptidase 4)","Intestinal α-glucosidases":"intestinal α-glucosidases (α-glucosidase enzymes)","SGLT2":"SGLT2 (sodium-glucose cotransporter 2)","Glucocorticoid receptor":"GR (glucocorticoid receptor)","Estrogen receptor ERα/ERβ":"ERα/ERβ (estrogen receptors alpha/beta)","Androgen receptor":"AR (androgen receptor)","Estrogen receptor":"ER (estrogen receptor)","Aromatase (CYP19A1)":"CYP19A1 (aromatase)","5α-reductase type 2":"5α-reductase type 2 (SRD5A2)","Thyroid hormone receptor":"TR (thyroid hormone receptor)","Thyroid peroxidase":"TPO (thyroid peroxidase)","Thyroid peroxidase; peripheral 5'-deiodinase":"TPO (thyroid peroxidase); peripheral 5′-deiodinase","Hydroxyapatite / osteoclast pathway":"hydroxyapatite / osteoclast pathway","FPP synthase in osteoclasts":"FPPS (farnesyl pyrophosphate synthase) in osteoclasts","COX-1/COX-2":"COX-1/COX-2 (cyclooxygenase-1/cyclooxygenase-2)","Central prostaglandin pathways":"central prostaglandin pathways","COX-2":"COX-2 (cyclooxygenase-2)","URAT1 및 renal organic anion transporters":"URAT1 (urate transporter 1) 및 renal organic anion transporters"};
 drugs.forEach(d=>{if(targetDisplayMap[d[2]])d[2]=targetDisplayMap[d[2]];});
 function targetKey(v){return normalizeText(v);}
-const APP_VERSION="2026.10.13.1.9";
+const APP_VERSION="2026.10.13.1.10";
 const APP_VERSION_KEY="pharmAppVersionV1";
 const APP_RELOAD_KEY="pharmAppReloadV1";
 const APP_CACHE_PREFIX="pharmApp-";
@@ -148,7 +148,7 @@ const storedState=readLocalJSON(key,{});
 const storedStarred=readLocalJSON(starredKey,[]);
 let state=(storedState&&typeof storedState==="object"&&!Array.isArray(storedState))?storedState:{};
 let starred=[...new Set(Array.isArray(storedStarred)?storedStarred.filter(x=>typeof x==="string"&&x):[])];
-let currentGroup=null,currentStage=1,pool=[],qi=0,answered=false,retryQueue=[],learningLoop=false;
+let currentGroup=null,currentStage=1,pool=[],qi=0,answered=false,retryQueue=[],learningLoop=false,typingAnswerShown=false;
 function safeStorageSet(storage,name,value){try{storage.setItem(name,value);return true}catch(e){console.warn("저장소 기록 실패:",name,e);return false}}
 function save(){safeStorageSet(localStorage,key,JSON.stringify(state));renderChapters()}
 function saveStarred(){safeStorageSet(localStorage,starredKey,JSON.stringify(starred))}
@@ -335,7 +335,7 @@ function preloadStageQuestions(){
 function bindChoiceButtons(correct){document.querySelectorAll("#quizArea .choice-btn").forEach(btn=>{btn.addEventListener("click",()=>answerChoice(btn.dataset.choice,correct));});}
 function compactExplanation(n,d){var h="";h+="<div class=\"drug-explanation\"><b>"+escapeHtml(n)+"</b>";h+="<div class=\"compact-explanation\">";h+="<span><b>표적</b> "+escapeHtml(d[2])+"</span>";h+="<span><b>MOA</b> "+escapeHtml(d[3])+"</span>";h+="<span><b>용도</b> "+escapeHtml(d[4])+"</span>";h+="</div>";h+="<div class=\"drug-naming\"><b>명명법</b><br>"+escapeHtml(namingLaw(n))+"<br><small>명명 유래</small><br>"+escapeHtml(namingOrigin(n))+"</div>";var pn=priorityNote(n);if(pn)h+="<div class=\"drug-memory\"><b>핵심 포인트</b> "+escapeHtml(pn.text)+"</div>";return h+="</div>"}
 function refreshQuizMeta(){const n=pool[qi];if(!n)return;const r=rec(n),meta="Chapter "+currentGroup.id+" · Stage "+currentStage+" · "+(qi+1)+"/"+pool.length;document.getElementById("quizMeta").innerHTML='<span class="pill">'+meta+'</span><span class="pill">'+stageNames[currentStage-1]+'</span><span class="pill">정답 '+(r.stage[currentStage]?.correct||0)+' · 오답 '+(r.stage[currentStage]?.wrong||0)+'</span>'}
-function drawQuestion(){
+function drawQuestion(){typingAnswerShown=false;
 const quizbox=document.querySelector("#quiz .quizbox"); if(quizbox){quizbox.classList.toggle("quiz-layout-side",quizLayout==="side")}
 let n=pool[qi],d=info(n),r=rec(n),meta="Chapter "+currentGroup.id+" · Stage "+currentStage+" · "+(qi+1)+"/"+pool.length;
 document.getElementById("quizMeta").innerHTML='<span class="pill">'+meta+'</span><span class="pill">'+stageNames[currentStage-1]+'</span><span class="pill">정답 '+(r.stage[currentStage]?.correct||0)+' · 오답 '+(r.stage[currentStage]?.wrong||0)+'</span>';
@@ -415,9 +415,15 @@ function answerTyping(){
   const ok=normalizeDrugName(typed)===normalizeDrugName(n);
   const input=document.getElementById("drugTyping"),feedback=document.getElementById("feedback");
   if(!ok){
-    record(false);refreshQuizMeta();
+    record(false);refreshQuizMeta();typingAnswerShown=true;
     if(input){input.value="";input.disabled=false;input.focus()}
-    feedback.innerHTML='<div class="feedback bad"><b>✗ 정답을 보고 그대로 따라 입력하세요.</b><div class="answer-display"><span class="answer-display-label">따라 입력할 정답</span><span class="answer-display-value">'+escapeHtml(n)+'</span></div><p>위에 표시된 약물명을 입력하고 제출하면 다음 문항으로 넘어갑니다.</p></div>';
+    feedback.innerHTML='<div class="feedback bad"><b>✗ 오답 — 정답을 보고 따라 입력할 수 있습니다.</b><div class="answer-display"><span class="answer-display-label">따라 입력할 정답</span><span class="answer-display-value">'+escapeHtml(n)+'</span></div><p>따라 입력해도 정답으로 기록되지 않습니다. 해당 약물은 복습 대상으로 남으며, 다음 복습에서 정답을 기억해 입력해야 정답 처리됩니다.</p>';
+    return;
+  }
+  if(typingAnswerShown){
+    answered=true;
+    if(input)input.disabled=true;
+    feedback.innerHTML='<div class="feedback bad"><b>복습 대상으로 유지됩니다.</b><div class="answer-display"><span class="answer-display-label">확인한 정답</span><span class="answer-display-value">'+escapeHtml(n)+'</span></div><p>따라 입력한 답은 정답으로 기록하지 않았습니다. 이 약물은 복습 목록에 남습니다.</p></div><button type="button" class="next-question primary" onclick="nextQuestion()">다음 문제 →</button>';
     return;
   }
   answered=true;record(true);refreshQuizMeta();
