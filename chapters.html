@@ -85,7 +85,7 @@ const groups=[{"id":"18","title":"강심제 · 협심증 · 부정맥 치료제"
 const targetDisplayMap={"β1-adrenergic receptor":"β1-AR (β1-adrenergic receptor)","Voltage-gated Na+ channel":"VGSC (voltage-gated sodium channel)","NO–cGMP pathway / soluble guanylyl cyclase":"sGC (soluble guanylyl cyclase) / NO–cGMP pathway","Carbonic anhydrase":"CA (carbonic anhydrase)","NCC (Na+/Cl− cotransporter)":"NCC (Na+/Cl− cotransporter)","NKCC2 (Na+/K+/2Cl− cotransporter)":"NKCC2 (Na+/K+/2Cl− cotransporter 2)","NKCC2":"NKCC2 (Na+/K+/2Cl− cotransporter 2)","ENaC":"ENaC (epithelial sodium channel)","ACE":"ACE (angiotensin-converting enzyme)","AT1 receptor":"AT1R (angiotensin II type 1 receptor)","L-type Ca2+ channel":"LTCC (L-type voltage-gated calcium channel)","ATP-sensitive K+ channel":"KATP channel (ATP-sensitive potassium channel)","β1/β2 + α1 adrenergic receptors":"β1/β2-AR + α1-AR (β1/β2- and α1-adrenergic receptors)","HMG-CoA reductase":"HMG-CoA reductase (3-hydroxy-3-methylglutaryl-coenzyme A reductase)","NPC1L1":"NPC1L1 (NPC1-like intracellular cholesterol transporter 1)","PPARα":"PPARα (peroxisome proliferator-activated receptor alpha)","GPR109A (HM74A)":"GPR109A/HM74A (G protein-coupled receptor 109A)","Vitamin K epoxide reductase (VKORC1)":"VKORC1 (vitamin K epoxide reductase complex subunit 1)","Thrombin (factor IIa)":"thrombin (factor IIa)","P2Y12 ADP receptor":"P2Y12 receptor (P2Y12 ADP receptor)","PDE3":"PDE3 (phosphodiesterase 3)","PDE + ENT":"PDEs + ENTs (phosphodiesterases + equilibrative nucleoside transporters)","GPIIb/IIIa integrin":"GPIIb/IIIa (glycoprotein IIb/IIIa integrin)","Sulfonylurea receptor / KATP channel":"SUR1/KATP channel (sulfonylurea receptor 1 / ATP-sensitive potassium channel)","KATP channel (SUR1)":"SUR1/KATP channel (sulfonylurea receptor 1 / ATP-sensitive potassium channel)","PPARγ":"PPARγ (peroxisome proliferator-activated receptor gamma)","Mitochondrial complex I / AMPK-related pathways":"mitochondrial complex I / AMPK (AMP-activated protein kinase)-related pathways","DPP-4":"DPP-4 (dipeptidyl peptidase 4)","Intestinal α-glucosidases":"intestinal α-glucosidases (α-glucosidase enzymes)","SGLT2":"SGLT2 (sodium-glucose cotransporter 2)","Glucocorticoid receptor":"GR (glucocorticoid receptor)","Estrogen receptor ERα/ERβ":"ERα/ERβ (estrogen receptors alpha/beta)","Androgen receptor":"AR (androgen receptor)","Estrogen receptor":"ER (estrogen receptor)","Aromatase (CYP19A1)":"CYP19A1 (aromatase)","5α-reductase type 2":"5α-reductase type 2 (SRD5A2)","Thyroid hormone receptor":"TR (thyroid hormone receptor)","Thyroid peroxidase":"TPO (thyroid peroxidase)","Thyroid peroxidase; peripheral 5'-deiodinase":"TPO (thyroid peroxidase); peripheral 5′-deiodinase","Hydroxyapatite / osteoclast pathway":"hydroxyapatite / osteoclast pathway","FPP synthase in osteoclasts":"FPPS (farnesyl pyrophosphate synthase) in osteoclasts","COX-1/COX-2":"COX-1/COX-2 (cyclooxygenase-1/cyclooxygenase-2)","Central prostaglandin pathways":"central prostaglandin pathways","COX-2":"COX-2 (cyclooxygenase-2)","URAT1 및 renal organic anion transporters":"URAT1 (urate transporter 1) 및 renal organic anion transporters"};
 drugs.forEach(d=>{if(targetDisplayMap[d[2]])d[2]=targetDisplayMap[d[2]];});
 function targetKey(v){return normalizeText(v);}
-const APP_VERSION="2026.10.13.1.7";
+const APP_VERSION="2026.10.13.1.8";
 const APP_VERSION_KEY="pharmAppVersionV1";
 const APP_RELOAD_KEY="pharmAppReloadV1";
 const APP_CACHE_PREFIX="pharmApp-";
@@ -413,10 +413,17 @@ function answerTyping(){
   if(answered)return;
   const n=pool[qi],d=info(n),typed=document.getElementById("drugTyping")?.value||"";
   const ok=normalizeDrugName(typed)===normalizeDrugName(n);
-  answered=true;record(ok);refreshQuizMeta();
-  const input=document.getElementById("drugTyping");if(input)input.disabled=true;
-  const explanation=compactExplanation(n,d);document.getElementById("feedback").innerHTML="";
-  document.getElementById("feedback").innerHTML='<div class="feedback '+(ok?"good":"bad")+'"><b>'+(ok?"✓ 정답":"✗ 오답")+'</b><div class="answer-display"><span class="answer-display-label">정답</span><span class="answer-display-value">'+escapeHtml(n)+'</span></div>'+explanation+'</div><button type="button" class="next-question primary" onclick="nextQuestion()">다음 문제 →</button>';bindPriorityCheck(n);
+  const input=document.getElementById("drugTyping"),feedback=document.getElementById("feedback");
+  if(!ok){
+    record(false);refreshQuizMeta();
+    if(input){input.value="";input.disabled=false;input.focus()}
+    feedback.innerHTML='<div class="feedback bad"><b>✗ 정답이 아닙니다. 다시 입력하세요.</b><p>Stage 6에서는 정답을 직접 입력해야 다음 문항으로 넘어갈 수 있습니다.</p></div>';
+    return;
+  }
+  answered=true;record(true);refreshQuizMeta();
+  if(input)input.disabled=true;
+  const explanation=compactExplanation(n,d);
+  feedback.innerHTML='<div class="feedback good"><b>✓ 정답</b><div class="answer-display"><span class="answer-display-label">정답</span><span class="answer-display-value">'+escapeHtml(n)+'</span></div>'+explanation+'</div><button type="button" class="next-question primary" onclick="nextQuestion()">다음 문제 →</button>';bindPriorityCheck(n);
 }
 function answerChoice(selected,correct){
   if(answered)return;
