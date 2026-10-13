@@ -417,7 +417,7 @@ function answerTyping(){
   if(!ok){
     record(false);refreshQuizMeta();typingAnswerShown=true;
     if(input){input.value="";input.disabled=false;input.focus()}
-    feedback.innerHTML='<div class="feedback bad"><b>✗ 오답 — 정답을 보고 따라 입력할 수 있습니다.</b><div class="answer-display"><span class="answer-display-label">따라 입력할 정답</span><span class="answer-display-value">'+escapeHtml(n)+'</span></div><p>따라 입력해도 정답으로 기록되지 않습니다. 해당 약물은 복습 대상으로 남으며, 다음 복습에서 정답을 기억해 입력해야 정답 처리됩니다.</p>';
+    feedback.innerHTML='<div class="feedback bad"><b>✗ 오답 — 정답을 보고 따라 입력할 수 있습니다.</b><div class="answer-display"><span class="answer-display-label">따라 입력할 정답</span><span class="answer-display-value">'+escapeHtml(n)+'</span></div><p>따라 입력해도 정답으로 기록되지 않습니다. 해당 약물은 복습 대상으로 남으며, 다음 복습에서 정답을 기억해 입력해야 정답 처리됩니다.</p></div>';
     return;
   }
   if(typingAnswerShown){
