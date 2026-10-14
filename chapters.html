@@ -165,7 +165,7 @@ function quizExplanation(n,showClass=true){
   const d=info(n);
   return '<div class="drug-explanation"><div class="drug-explanation-head"><div><div class="drug-explanation-name">'+escapeHtml(n)+'</div>'+(showClass?'<span class="drug-explanation-class">'+escapeHtml(d[1])+'</span>':'')+'</div></div>'+memoryCore(n)+'</div>';
 }
-const imageCids={"Carvedilol":"2585","Labetalol":"3869","Hydralazine":"3637","Minoxidil":"4201","Atorvastatin":"60823","Cilostazol":"2754"};
+const imageCids={"Metformin":"4091","Carvedilol":"2585","Labetalol":"3869","Hydralazine":"3637","Minoxidil":"4201","Atorvastatin":"60823","Cilostazol":"2754"};
 const imageAliases={"Etidronate":"Etidronic acid","Trichlormethiazide":"Trichloromethiazide","Acetaminophen":"Acetaminophen","Captopril":"Captopril","Enalapril":"Enalapril","Enalaprilat":"Enalaprilat","Fosinopril":"Fosinopril","Fosinoprilat":"Fosinoprilat","Lisinopril":"Lisinopril","Losartan":"Losartan","Telmisartan":"Telmisartan","Candesartan":"Candesartan","Olmesartan":"Olmesartan","Pravastatin":"Pravastatin","Simvastatin":"Simvastatin","Atorvastatin":"Atorvastatin","Rosuvastatin":"Rosuvastatin","Clofibrate":"Clofibrate","Gemfibrozil":"Gemfibrozil","Ezetimibe":"Ezetimibe","Phenformin":"Phenformin","Metformin":"구조 암기: 두 guanidine 유사 부분이 이어진 biguanide 골격에 두 methyl 치환기가 있다. 'Met-'를 methyl과 연결하는 것은 암기 보조이며, 이름 전체를 문자 그대로 구조의 공식 분해로 보지는 않는다.","Ibuprofen":"Ibuprofen","Sulindac":"Sulindac","Phenylbutazone":"Phenylbutazone","Celecoxib":"Celecoxib"};
 function img(n){if(imageCids[n])return "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/"+imageCids[n]+"/PNG?record_type=2d&image_size=large";const q=imageAliases[n]||n;return "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/"+encodeURIComponent(q)+"/PNG?record_type=2d"}
 
