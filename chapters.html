@@ -177,6 +177,7 @@ function drugImageError(e){
   if(!(im instanceof HTMLImageElement)||!im.dataset.drugName)return;
   const n=im.dataset.drugName,q=imageAliases[n]||n,step=Number(im.dataset.imageFallback||0);
   const fallbacks=[
+    "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/"+encodeURIComponent(q)+"/PNG?record_type=2d&image_size=large",
     "https://cactus.nci.nih.gov/chemical/structure/"+encodeURIComponent(q)+"/image",
     "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/"+encodeURIComponent(q)+"/PNG"
   ];
