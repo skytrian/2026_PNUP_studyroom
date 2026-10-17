@@ -35,7 +35,7 @@ main{max-width:1050px;margin:auto;padding:20px 24px 70px}.cards{display:grid;gri
 (function(){
  const name=document.getElementById("creatorName"),modal=document.getElementById("creatorLiveModal"),frame=document.getElementById("creatorLiveFrame"),close=document.getElementById("creatorLiveClose");
  if(!name||!modal||!frame||!close)return;
- const video="https://www.youtube-nocookie.com/embed/i8feIrHIO2k?autoplay=1&playsinline=1";
+ const video="https://www.youtube-nocookie.com/embed/tkUag9Hxv_w?autoplay=1&playsinline=1";
  function openVideo(){frame.src=video;modal.classList.add("open");document.body.style.overflow="hidden";close.focus();}
  function closeVideo(){modal.classList.remove("open");frame.src="about:blank";document.body.style.overflow="";}
  name.addEventListener("dblclick",openVideo);
