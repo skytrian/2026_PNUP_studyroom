@@ -209,6 +209,15 @@ document.getElementById("targetReferenceTables").innerHTML =
 '<h3>4. 조직 거주 대식세포 7종 (PDF 표기)</h3><div style="overflow-x:auto"><table><thead><tr><th>조직</th><th>세포명</th></tr></thead><tbody>'+
 '<tr><td>Brain</td><td>Microglial cells</td></tr><tr><td>Lung</td><td>Alveolar macrophages</td></tr><tr><td>Liver</td><td>Kupffer cells</td></tr><tr><td>Heart</td><td>Myocardial macrophages</td></tr><tr><td>Skin</td><td>Dermal macrophages</td></tr><tr><td>Spleen</td><td>Sinusoidal macrophages</td></tr><tr><td>Intestines</td><td>Lamina propria macrophages</td></tr></tbody></table></div>';
 
+
+/* 암기표의 열 제목을 모바일 카드에서도 읽을 수 있도록 각 셀에 라벨 부여 */
+document.querySelectorAll("#targetReferenceTables table").forEach(table=>{
+ const headers=[...table.querySelectorAll("thead th")].map(th=>th.textContent.trim());
+ table.querySelectorAll("tbody tr").forEach(row=>{
+  [...row.querySelectorAll("td")].forEach((cell,i)=>cell.setAttribute("data-label",headers[i]||"항목"));
+ });
+});
+
 targetBuild("all",false,false);
 
 })();
