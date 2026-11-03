@@ -1,3 +1,9 @@
+## 면역학 기말고사 업데이트 (2026.11.03.1.1)
+- Chapter 07 「주조직적합성 항원과 항원 제시」를 별도 학습 페이지로 추가했습니다. MHC class I/II/III, MHC restriction, APC와 DC subsets, MHC I·II 항원 처리 경로, Ii·CLIP·HLA-DM, 교차항원제시 및 MHC 관련 질환을 강의자료 기반으로 정리했습니다.
+- Chapter 06 보체와 Chapter 07 페이지에 각각 강의 PDF에서 발췌한 도식 이미지를 추가했습니다.
+- 기말고사 면역학 페이지의 챕터 선택 메뉴에서 Chapter 06과 Chapter 07을 오갈 수 있습니다.
+- Chapter 07 페이지: https://skytrian.github.io/2026_PNUP_studyroom/immunology-final-ch07.html
+
 # MedChem Study - PNUP / PNUP Study Hub
 
 부산대학교 약학대학 학습용 GitHub Pages입니다. 면역학과 의약화학 학습 페이지를 한 곳에서 제공합니다.
