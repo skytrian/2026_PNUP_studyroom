@@ -1,6 +1,8 @@
-## 면역학 기말고사 업데이트 (2026.11.03.1.1)
+## 면역학 기말고사 업데이트 (2026.11.03.1.2)
 - Chapter 07 「주조직적합성 항원과 항원 제시」를 별도 학습 페이지로 추가했습니다. MHC class I/II/III, MHC restriction, APC와 DC subsets, MHC I·II 항원 처리 경로, Ii·CLIP·HLA-DM, 교차항원제시 및 MHC 관련 질환을 강의자료 기반으로 정리했습니다.
-- Chapter 06 보체와 Chapter 07 페이지에 각각 강의 PDF에서 발췌한 도식 이미지를 추가했습니다.
+- 기존 강의 PDF 캡처 이미지(assets/ch06_all.jpg, assets/ch07_all.jpg)를 페이지에서 제거하고 저장소에서도 삭제했습니다.
+- Chapter 06은 Frontiers in Immunology의 보체 원본 도식으로, Chapter 07은 MHC class I·II 경로를 다룬 학술 도식으로 교체했습니다. 각 이미지 아래 논문·DOI 출처와 CC BY 라이선스를 표시했습니다.
+- PDF는 개념과 학습 범위를 확인하는 참고자료로만 사용하며, PDF 캡처를 페이지 이미지로 재사용하지 않습니다.
 - 기말고사 면역학 페이지의 챕터 선택 메뉴에서 Chapter 06과 Chapter 07을 오갈 수 있습니다.
 - Chapter 07 페이지: https://skytrian.github.io/2026_PNUP_studyroom/immunology-final-ch07.html
 
@@ -47,3 +49,6 @@ GitHub Pages는 저장소의 Pages 설정 및 workflow를 통해 배포됩니다
 - v2026.10.21.1.10: Selection 요약 스크립트의 배열 구문 오류를 수정해 탭 내용이 정상 렌더링되도록 보완했습니다.
 
 - v2026.11.03.1.0: 기말고사 학습 허브를 12월 겨울 테마로 개편하고 면역학 기말 페이지를 Top-down 구조로 신설했습니다. Chapter 06 「보체」 강의자료를 바탕으로 전체 흐름, 세 가지 활성화 경로, C3/C5 전환효소와 MAC, 보체 조절 인자, 보체 수용체·면역복합체 제거, 결핍증 및 핵심 확인 문제를 구성했습니다. 이후 챕터를 독립적으로 추가할 수 있도록 챕터 선택 영역과 섹션 내비게이션을 분리했습니다.
+
+
+- v2026.11.03.1.2: 면역학 Chapter 06·07의 강의 PDF 캡처 이미지를 제거하고 학술 논문의 원본 도식으로 교체했습니다. 이미지별 논문 출처·DOI·CC BY 표시를 추가했습니다.
