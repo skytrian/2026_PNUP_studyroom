@@ -12,6 +12,10 @@
 .layout{display:grid;grid-template-columns:245px minmax(0,1fr);gap:20px;margin-top:20px}.side{align-self:start;position:sticky;top:68px;background:#fff;border:1px solid var(--line);border-radius:17px;padding:14px}.side h2{font-size:12px;color:var(--muted);letter-spacing:.1em;margin:4px 8px 9px}.navbtn{display:block;width:100%;text-align:left;border:1px solid transparent;background:transparent;border-radius:9px;padding:9px 10px;margin:3px 0;color:#53676e;cursor:pointer;font:inherit;font-size:13px}.navbtn:hover,.navbtn.active{background:var(--teal-soft);border-color:#a8d9d1;color:#075f59;font-weight:800}.side small{display:block;border-top:1px solid var(--line);margin:12px 7px 2px;padding-top:10px;color:var(--muted);font-size:11px}
 .content{min-width:0}.section{scroll-margin-top:80px;margin-bottom:20px}.intro{border:1px solid var(--line);border-radius:16px;background:linear-gradient(120deg,#fff,#f1f8f7);padding:18px 20px;margin-bottom:12px}.intro .kicker{font-size:10px;letter-spacing:.15em;font-weight:900;color:var(--teal)}.intro h2{font-size:23px;margin:4px 0}.intro p{color:var(--muted);margin:0}.card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:18px;margin:11px 0;box-shadow:0 5px 18px #19343b08}.card h3{font-size:17px;margin:0 0 8px}.card h4{font-size:14px;margin:14px 0 5px;color:#176c67}.card p{margin:6px 0}.card ul,.card ol{padding-left:21px;margin:7px 0}.card li{padding:3px 0}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.grid .card{margin:0}.callout{background:#fff8e9;border-left:4px solid #d4a44d;padding:12px 14px;border-radius:0 10px 10px 0;margin:11px 0;color:#5b4826}.callout strong{color:#8b5b11}.flow{display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap;padding:13px;background:#f2f8f7;border:1px solid var(--line);border-radius:12px;margin:10px 0}.flow span{background:white;border:1px solid #b9d8d2;border-radius:8px;padding:7px 10px;font-weight:800;font-size:12px}.flow b{color:var(--teal)}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:11px;margin:10px 0}table{width:100%;border-collapse:collapse;min-width:540px;font-size:13px}th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#eaf4f2;color:#315b5b;font-size:11px}td:first-child{font-weight:800;color:#176c67}tr:last-child td{border-bottom:0}.tag{display:inline-block;border-radius:6px;background:#edf5f4;color:#176c67;padding:2px 7px;font-size:11px;font-weight:800;margin:2px}.question{border:1px solid var(--line);background:#fff;border-radius:14px;padding:16px;margin:12px 0}.question h3{font-size:15px;margin:0 0 10px}.options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.option{display:flex;gap:8px;align-items:flex-start;padding:9px 10px;border:1px solid var(--line);border-radius:9px;cursor:pointer}.option:has(input:checked){background:var(--teal-soft);border-color:#80c6ba}.feedback{display:none;margin-top:10px;padding:10px 12px;border-radius:9px;background:#edf8f4;color:#17654f}.feedback.show{display:block}.feedback.wrong{background:#fff0ef;color:#963f45}.btn{border:1px solid #a9c9c4;background:#eaf6f3;color:#075f59;border-radius:9px;padding:8px 12px;font-weight:800;cursor:pointer}.answer-input{width:100%;padding:10px;border:1px solid var(--line);border-radius:9px;font:inherit}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0}.badge{font-size:11px;color:#53676e;background:#eef2f4;border-radius:99px;padding:4px 8px}.footer{text-align:center;color:var(--muted);font-size:11px;padding:22px}
 @media(max-width:850px){.layout{grid-template-columns:1fr}.side{position:static}.side nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px}.side small{display:none}}@media(max-width:600px){.shell{padding:14px 12px 45px}.topin{padding:9px 12px}.hero{border-radius:18px}.grid,.options{grid-template-columns:1fr}.card{padding:15px}.intro{padding:15px}.side nav{grid-template-columns:1fr 1fr}}
+
+.drug-toolbar{position:relative}.drug-search{display:flex;flex-direction:column;gap:5px;max-width:420px}.drug-search label{font-size:12px;font-weight:850;color:#49636a}.drug-search input{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px 13px;font:inherit;outline:none}.drug-search input:focus{border-color:var(--teal);box-shadow:0 0 0 3px #087f7818}.drug-filters{display:flex;flex-wrap:wrap;gap:7px;margin:13px 0 5px}.drug-filter{border:1px solid var(--line);background:#f8fbfb;color:#52666d;border-radius:999px;padding:7px 11px;font:700 12px system-ui;cursor:pointer}.drug-filter.active,.drug-filter:hover{background:var(--teal);border-color:var(--teal);color:white}.drug-group{margin:18px 0 24px}.drug-group>h3{font-size:17px;margin:0 0 10px;color:#244e50}.drug-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.drug-card{min-width:0;background:#fff;border:1px solid var(--line);border-radius:13px;padding:14px;box-shadow:0 4px 14px #19343b07}.drug-card h3{font-size:16px;line-height:1.3;margin:6px 0 7px;color:#174f50}.drug-card p{font-size:13px;line-height:1.55;margin:0 0 10px;color:#53666d}.drug-card small{font-size:11px;color:#71858b}.drug-meta{font-size:10px;letter-spacing:.03em;font-weight:850;color:#087f78}.drug-card[hidden],.drug-group[hidden]{display:none!important}
+@media(max-width:1000px){.drug-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.drug-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -30,19 +34,91 @@
 <div class="layout">
 <aside class="side"><h2>CHAPTER MAP · TOP-DOWN</h2><nav id="sectionNav">
 <button class="navbtn active" data-target="overview">00. 전체 구조</button>
-<button class="navbtn" data-target="histamine">01. Histamine & Receptor</button>
-<button class="navbtn" data-target="h1">02. H1 항히스타민제</button>
-<button class="navbtn" data-target="h2">03. H2 항히스타민제</button>
-<button class="navbtn" data-target="ppi">04. Proton Pump Inhibitor</button>
-<button class="navbtn" data-target="pg">05. Prostaglandins</button>
-<button class="navbtn" data-target="other">06. 기타 치료제·매개물질</button>
-<button class="navbtn" data-target="quiz">07. 중간고사형 확인 문제</button>
+<button class="navbtn" data-target="druglist">01. 약물 정리</button>
+<button class="navbtn" data-target="histamine">02. Histamine & Receptor</button>
+<button class="navbtn" data-target="h1">03. H1 항히스타민제</button>
+<button class="navbtn" data-target="h2">04. H2 항히스타민제</button>
+<button class="navbtn" data-target="ppi">05. Proton Pump Inhibitor</button>
+<button class="navbtn" data-target="pg">06. Prostaglandins</button>
+<button class="navbtn" data-target="other">07. 기타 치료제·매개물질</button>
+<button class="navbtn" data-target="quiz">08. 중간고사형 확인 문제</button>
 </nav><small>학습 팁: 먼저 표적과 최종 효과를 말한 뒤, 구조가 그 효과를 만드는 이유를 설명해 보자.</small></aside>
 <div class="content">
 <section class="section" id="overview"><div class="intro"><div class="kicker">00 / BIG PICTURE</div><h2>Chapter 27을 한눈에 보기</h2><p>알레르기 반응을 줄이는 H1 차단과 위산 분비를 줄이는 H2·PPI를 구분하는 것이 출발점이다.</p></div>
 <div class="card"><h3>치료 목표에서 출발하는 전체 지도</h3><div class="flow"><span>Histamine</span><b>→</b><span>H1 receptor</span><b>→</b><span>알레르기 증상</span><b>→</b><span>H1 inverse agonist</span></div><div class="flow"><span>Histamine</span><b>→</b><span>H2 receptor</span><b>→</b><span>위산 분비 증가</span><b>→</b><span>H2 inverse agonist</span></div><div class="flow"><span>ACh · Gastrin · Histamine</span><b>→</b><span>Parietal cell</span><b>→</b><span>H⁺/K⁺-ATPase</span><b>→</b><span>위산</span></div><div class="callout"><strong>가장 중요한 구분:</strong> H1 항히스타민제는 알레르기 관련 H1 수용체, H2 항히스타민제는 위산 분비 관련 H2 수용체를 표적으로 한다. PPI는 수용체가 아니라 위산 분비의 마지막 단계인 proton pump를 표적으로 한다.</div></div>
 <div class="grid"><article class="card"><h3>알레르기·과민반응 축</h3><p><b>H1 inverse agonist</b>가 비활성형 H1 수용체를 안정화한다. 세대 구분은 BBB 통과 및 CNS 진정작용과 연결한다.</p><span class="tag">H1</span><span class="tag">1세대 / 2세대</span><span class="tag">Mast cell stabilizer</span></article><article class="card"><h3>위산·소화성 궤양 축</h3><p>H2 inverse agonist는 히스타민 신호를 억제하고, PPI는 H⁺/K⁺-ATPase에 공유결합해 마지막 분비 단계를 차단한다.</p><span class="tag">H2</span><span class="tag">PPI</span><span class="tag">Misoprostol</span></article></div>
 <div class="card"><h3>강의자료의 학습 범위</h3><div class="tablewrap"><table><thead><tr><th>파트</th><th>핵심 질문</th><th>대표 키워드·약물</th></tr></thead><tbody><tr><td>27.1</td><td>Histamine은 어떻게 작용하고 수용체는 어떤 상태를 갖는가?</td><td>H1–H4, GPCR, inverse agonist, two-state model</td></tr><tr><td>27.2</td><td>H1 약물의 구조와 세대별 차이는 무엇인가?</td><td>Diphenhydramine, Cetirizine, Fexofenadine, Loratadine, Olopatadine</td></tr><tr><td>27.3</td><td>H2 선택적 길항제는 어떻게 설계되었는가?</td><td>Cimetidine, Ranitidine, Famotidine, Nizatidine</td></tr><tr><td>27.4</td><td>PPI는 어떻게 활성화되고 비가역적으로 결합하는가?</td><td>Benzimidazole, Pyridine, Cys, Disulfide bond</td></tr><tr><td>27.5–27.6</td><td>위벽 보호와 지속성 염증 매개물질 억제는 어떻게 달성하는가?</td><td>Misoprostol, Sucralfate, Zileuton, FLAP</td></tr></tbody></table></div></div></section>
+
+<section class="section" id="druglist">
+<div class="intro"><div class="kicker">DRUG INDEX / PDF-ONLY</div><h2>강의자료 약물 정리</h2><p>업로드된 「의약화학-27장-항히스타민제 PPI-S.pdf」 46쪽에서 약물명 또는 약물 후보명이 실제로 확인되는 항목만 모았다. 자료에 작용기전·용도가 구체적으로 적히지 않은 항목은 임의로 보충하지 않았다.</p></div>
+<div class="card drug-toolbar">
+ <div class="drug-search"><label for="drugSearch">약물명 검색</label><input id="drugSearch" type="search" placeholder="예: Cimetidine, Zileuton, H1..." autocomplete="off"></div>
+ <div class="drug-filters" role="group" aria-label="약물 분류 필터">
+  <button type="button" class="drug-filter active" data-drug-filter="all">전체</button>
+  <button type="button" class="drug-filter" data-drug-filter="h1">H1 항히스타민</button>
+  <button type="button" class="drug-filter" data-drug-filter="h2">H2 항히스타민</button>
+  <button type="button" class="drug-filter" data-drug-filter="ppi">PPI</button>
+  <button type="button" class="drug-filter" data-drug-filter="gi">위장관 기타</button>
+  <button type="button" class="drug-filter" data-drug-filter="mediator">염증 매개물질</button>
+  <button type="button" class="drug-filter" data-drug-filter="lead">개발 중간체·후보</button>
+ </div>
+ <p class="muted" id="drugCount" aria-live="polite">PDF에 등장하는 항목을 표시합니다.</p>
+</div>
+<div class="drug-group"><h3>H1 항히스타민제 · 항알레르기제</h3><div class="drug-grid" id="drugGrid">
+<article class="drug-card" data-category="h1" data-search="chlorpheniramine propylamine 1세대"><div class="drug-meta">H1 · Propylamine · 1세대</div><h3>Chlorpheniramine</h3><p>구조적 분류표에 포함된 1세대 H1 항히스타민제.</p><small>PDF p.14</small></article>
+<article class="drug-card" data-category="h1" data-search="diphenhydramine ethanolamine 1세대 졸림 항콜린"><div class="drug-meta">H1 · Ethanolamine · 1세대</div><h3>Diphenhydramine</h3><p>BBB 통과에 따른 진정작용과 muscarinic 관련 항콜린 부작용이 강조된다.</p><small>PDF pp.11, 14</small></article>
+<article class="drug-card" data-category="h1" data-search="pyrilamine ethylenediamine 1세대"><div class="drug-meta">H1 · Ethylenediamine · 1세대</div><h3>Pyrilamine</h3><p>구조적 분류표에 포함된 1세대 H1 항히스타민제.</p><small>PDF p.14</small></article>
+<article class="drug-card" data-category="h1" data-search="promethazine phenothiazine 1세대"><div class="drug-meta">H1 · Phenothiazine · 1세대</div><h3>Promethazine</h3><p>Phenothiazine계 H1 항히스타민제의 대표 약물.</p><small>PDF pp.13–14</small></article>
+<article class="drug-card" data-category="h1" data-search="trimeprazine phenothiazine 1세대"><div class="drug-meta">H1 · Phenothiazine · 1세대</div><h3>Trimeprazine</h3><p>Phenothiazine계로 분류되며 1세대에 해당한다.</p><small>PDF pp.13–14</small></article>
+<article class="drug-card" data-category="h1" data-search="methdilazine phenothiazine 1세대"><div class="drug-meta">H1 · Phenothiazine · 1세대</div><h3>Methdilazine</h3><p>Phenothiazine계로 분류되며 1세대에 해당한다.</p><small>PDF pp.13–14</small></article>
+<article class="drug-card" data-category="h1" data-search="hydroxyzine piperazine 1세대 cetirizine active metabolite"><div class="drug-meta">H1 · Piperazine · 1세대</div><h3>Hydroxyzine</h3><p>1세대 Piperazine계 약물이며 Cetirizine의 active metabolite 관계가 언급된다.</p><small>PDF pp.12, 14–15</small></article>
+<article class="drug-card" data-category="h1" data-search="cyproheptadine piperidine 1세대"><div class="drug-meta">H1 · Piperidine · 1세대</div><h3>Cyproheptadine</h3><p>구조적 분류표에 포함된 1세대 Piperidine계 약물.</p><small>PDF p.14</small></article>
+<article class="drug-card" data-category="h1" data-search="cetirizine piperazine 2세대 zwitterion"><div class="drug-meta">H1 · Piperazine · 2세대</div><h3>Cetirizine</h3><p>Amine과 COOH가 zwitterion을 형성해 극성이 증가하며, Hydroxyzine의 active metabolite로 소개된다.</p><small>PDF pp.12, 14–15</small></article>
+<article class="drug-card" data-category="h1" data-search="levocetirizine piperazine R enantiomer 2세대"><div class="drug-meta">H1 · Piperazine · 2세대</div><h3>Levocetirizine</h3><p>Cetirizine의 R-enantiomer로 제시되며, R형의 H1 활성이 S형보다 높다고 설명한다.</p><small>PDF pp.12, 14–15</small></article>
+<article class="drug-card" data-category="h1" data-search="terfenadine prodrug CYP fexofenadine"><div class="drug-meta">H1 · 전구약물 관계</div><h3>Terfenadine</h3><p>CYP 대사를 거쳐 active metabolite인 Fexofenadine으로 전환되는 prodrug로 설명된다.</p><small>PDF p.15</small></article>
+<article class="drug-card" data-category="h1" data-search="fexofenadine piperidine 2세대 peripheral P glycoprotein"><div class="drug-meta">H1 · Piperidine · 2세대</div><h3>Fexofenadine</h3><p>Terfenadine의 active metabolite. 큰 분자 크기와 P-glycoprotein efflux에 따른 말초 선택성이 강조된다.</p><small>PDF pp.14–15</small></article>
+<article class="drug-card" data-category="h1" data-search="loratadine piperidine 2세대"><div class="drug-meta">H1 · Piperidine · 2세대</div><h3>Loratadine</h3><p>구조적 분류표에 포함된 2세대 Piperidine계 약물.</p><small>PDF p.14</small></article>
+<article class="drug-card" data-category="h1" data-search="desloratadine piperidine 2세대"><div class="drug-meta">H1 · Piperidine · 2세대</div><h3>Desloratadine</h3><p>구조적 분류표에서 Loratadine과 함께 2세대 Piperidine계로 제시된다.</p><small>PDF p.14</small></article>
+<article class="drug-card" data-category="h1" data-search="olopatadine dual acting topical mast cell"><div class="drug-meta">H1 · 국소용 · Dual-Acting</div><h3>Olopatadine</h3><p>국소용 H1 항히스타민제이자 mast cell 안정화 작용을 함께 갖는 예로 제시된다.</p><small>PDF p.16</small></article>
+<article class="drug-card" data-category="h1" data-search="azelastine topical dual acting"><div class="drug-meta">H1 · 국소용 · Dual-Acting</div><h3>Azelastine</h3><p>국소용 H1 항히스타민제의 대표 예로 언급된다.</p><small>PDF p.16</small></article>
+<article class="drug-card" data-category="h1" data-search="ketotifen topical dual acting"><div class="drug-meta">H1 · 국소용 · Dual-Acting</div><h3>Ketotifen</h3><p>국소용 H1 항히스타민제의 대표 예로 언급된다.</p><small>PDF p.16</small></article>
+<article class="drug-card" data-category="h1" data-search="cromoglicate cromolyn mast cell stabilizer"><div class="drug-meta">Mast cell stabilizer</div><h3>Cromoglicate</h3><p>Mast cell을 안정화하여 생체 내 과민반응을 억제하는 대표 약물.</p><small>PDF p.17</small></article>
+</div></div>
+<div class="drug-group"><h3>H2 항히스타민제 · 개발 단계</h3><div class="drug-grid">
+<article class="drug-card" data-category="h2" data-search="cimetidine H2 cyanoguanidine"><div class="drug-meta">H2 · 최종 개발 약물</div><h3>Cimetidine</h3><p>Cyanoguanidine을 도입해 thiourea 독성 문제를 개선한 H2 inverse agonist.</p><small>PDF pp.21, 31–33</small></article>
+<article class="drug-card" data-category="h2" data-search="ranitidine H2 peptic ulcer"><div class="drug-meta">H2 · 치료 약물로 언급</div><h3>Ranitidine</h3><p>소화성 궤양 치료에 사용하는 H2 항히스타민제 예로 언급된다.</p><small>PDF pp.19, 33</small></article>
+<article class="drug-card" data-category="h2" data-search="famotidine H2 potency"><div class="drug-meta">H2 · 대표 약물</div><h3>Famotidine</h3><p>대표 H2 항히스타민제로 구조가 제시되며, 비교 약물 중 potency가 가장 높게 표시된다.</p><small>PDF p.33</small></article>
+<article class="drug-card" data-category="h2" data-search="nizatidine H2 potency"><div class="drug-meta">H2 · 대표 약물</div><h3>Nizatidine</h3><p>대표 H2 항히스타민제로 구조가 제시된다.</p><small>PDF p.33</small></article>
+<article class="drug-card" data-category="lead" data-search="N alpha guanylhistamine partial agonist"><div class="drug-meta">H2 개발 중간체 · Partial agonist</div><h3>Nα-Guanylhistamine</h3><p>Guanidine을 도입해 agonist·antagonist 결합 영역에 모두 결합하는 부분 효능제로 설명된다.</p><small>PDF p.25</small></article>
+<article class="drug-card" data-category="lead" data-search="SKF 91581 thiourea pure antagonist"><div class="drug-meta">H2 개발 중간체 · Pure antagonist</div><h3>SKF 91581</h3><p>Thiourea 도입으로 생리 pH에서 비이온화되는 최초의 pure antagonist로 소개되나 affinity가 낮다.</p><small>PDF pp.27–28</small></article>
+<article class="drug-card" data-category="lead" data-search="burimamide thiourea H2"><div class="drug-meta">H2 개발 중간체</div><h3>Burimamide</h3><p>곁사슬을 연장하고 thiourea 말단에 N-methyl을 도입해 친수성을 조절한 유도체.</p><small>PDF pp.28–30</small></article>
+<article class="drug-card" data-category="lead" data-search="thiaburimamide sulfur isostere"><div class="drug-meta">H2 개발 중간체</div><h3>Thiaburimamide</h3><p>곁사슬의 CH₂를 S로 치환해 imidazole tautomer 비율과 pKa를 조절한 유도체.</p><small>PDF p.30</small></article>
+<article class="drug-card" data-category="lead" data-search="metiamide thiourea toxicity"><div class="drug-meta">H2 개발 중간체</div><h3>Metiamide</h3><p>Imidazole의 S·Me 치환으로 활성을 높였으나 thiourea 관련 신장 손상·과립구감소증이 문제로 제시된다.</p><small>PDF pp.30–32</small></article>
+</div></div>
+<div class="drug-group"><h3>Proton Pump Inhibitors · 위산 분비 억제</h3><div class="drug-grid">
+<article class="drug-card" data-category="ppi" data-search="omeprazole PPI benzimidazole"><div class="drug-meta">PPI · 대표 기전</div><h3>Omeprazole</h3><p>산성 조건에서 활성형으로 전환되고 proton pump Cys와 disulfide bond를 형성하는 예로 설명된다.</p><small>PDF p.35</small></article>
+<article class="drug-card" data-category="ppi" data-search="pantoprazole pantorazole PPI"><div class="drug-meta">PPI · 구조 예시</div><h3>Pantoprazole</h3><p>대표 PPI 구조 예시로 제시된다. 슬라이드의 구조 라벨은 “Pantorazole”로 표기되어 있다.</p><small>PDF p.36</small></article>
+<article class="drug-card" data-category="ppi" data-search="lansoprazole PPI"><div class="drug-meta">PPI · 구조 비교</div><h3>Lansoprazole</h3><p>Rabeprazole과 함께 공유결합형 PPI의 화학적 특성 비교에 등장한다.</p><small>PDF p.37</small></article>
+<article class="drug-card" data-category="ppi" data-search="rabeprazole PPI"><div class="drug-meta">PPI · 구조 비교</div><h3>Rabeprazole</h3><p>Lansoprazole과 함께 pH에 따른 활성화·중간체 비율 비교에 등장한다.</p><small>PDF p.37</small></article>
+</div></div>
+<div class="drug-group"><h3>Prostaglandins · 위장관 보호</h3><div class="drug-grid">
+<article class="drug-card" data-category="gi" data-search="prostaglandin E1 PGE1 reference"><div class="drug-meta">Prostaglandin · 비교 기준 구조</div><h3>Prostaglandin E1 (PGE₁)</h3><p>위벽 보호 효과의 기준 구조. C15 secondary alcohol의 빠른 대사가 임상적 사용의 제한으로 설명된다.</p><small>PDF pp.38–39</small></article>
+<article class="drug-card" data-category="gi" data-search="misoprostol PGE1 analogue methyl ester"><div class="drug-meta">Prostaglandin analogue</div><h3>Misoprostol</h3><p>경구 투여 가능한 PGE₁ 유사체. C15-OH를 C16 tertiary alcohol로 옮겨 대사를 억제하도록 설계된다.</p><small>PDF p.39</small></article>
+</div></div>
+<div class="drug-group"><h3>기타 위장관 약물</h3><div class="drug-grid">
+<article class="drug-card" data-category="gi" data-search="sucralfate ulcer protective polymer"><div class="drug-meta">점막 보호제</div><h3>Sucralfate</h3><p>산성 환경에서 점착성 polymer를 형성해 궤양 부위에 부착하고 위산·pepsin·bile salt로부터 보호한다.</p><small>PDF p.40</small></article>
+<article class="drug-card" data-category="gi" data-search="metoclopramide D2 antagonist antiemetic"><div class="drug-meta">항구토제 · D₂ antagonist</div><h3>Metoclopramide</h3><p>CNS chemoreceptor trigger zone의 D₂ receptor antagonist로 작용한다. 강의자료는 항히스타민제와 관련이 없다고 명시한다.</p><small>PDF p.41</small></article>
+<article class="drug-card" data-category="gi" data-search="amoxicillin H pylori antibiotic"><div class="drug-meta">병용 항생제 언급</div><h3>Amoxicillin</h3><p>H. pylori 관련 소화성 궤양 치료에서 병용 항생제 예로 언급된다. 이 PDF에는 별도 구조·SAR 설명이 없다.</p><small>PDF p.19</small></article>
+<article class="drug-card" data-category="gi" data-search="metronidazole H pylori antibiotic"><div class="drug-meta">병용 항생제 언급</div><h3>Metronidazole</h3><p>H. pylori 관련 소화성 궤양 치료에서 병용 항생제 예로 언급된다. 이 PDF에는 별도 구조·SAR 설명이 없다.</p><small>PDF p.19</small></article>
+</div></div>
+<div class="drug-group"><h3>염증 매개물질 · Leukotriene 경로</h3><div class="drug-grid">
+<article class="drug-card" data-category="mediator" data-search="zileuton 5 lipoxygenase iron ligand inhibitor"><div class="drug-meta">5-LO inhibitor</div><h3>Zileuton</h3><p>5-Lipoxygenase 억제제 개발의 대표 약물. Iron ligand inhibitor 설계 과정을 통해 소개된다.</p><small>PDF p.45</small></article>
+<article class="drug-card" data-category="mediator" data-search="ICI 211965 non redox inhibitor"><div class="drug-meta">5-LO inhibitor · 연구 유도체</div><h3>ICI 211965</h3><p>Non-redox/non-ligand 5-LO inhibitor의 예로 언급된다.</p><small>PDF p.45</small></article>
+<article class="drug-card" data-category="mediator" data-search="ICI D2138 non redox inhibitor"><div class="drug-meta">5-LO inhibitor · 연구 유도체</div><h3>ICI D2138</h3><p>Non-redox/non-ligand 5-LO inhibitor의 예로 언급된다. 슬라이드에는 “ICID2138”로 표기되어 있다.</p><small>PDF p.45</small></article>
+<article class="drug-card" data-category="mediator" data-search="SC-53228 LTB4 receptor antagonist"><div class="drug-meta">LTB₄ receptor antagonist · 연구 후보</div><h3>SC-53228</h3><p>Triene 구조를 고리화하는 전략으로 개발한 LTB₄ receptor antagonist 예시.</p><small>PDF p.46</small></article>
+</div></div>
+<div class="callout"><strong>범위 원칙:</strong> 이 탭은 PDF에 이름이 적힌 약물·개발 중간체·연구 후보만 수록했다. PDF가 “그 외 대표 약물은 교과서 참조”라고만 적은 항목이나, 이름이 특정되지 않은 FLAP 억제제는 추가하지 않았다. 각 항목의 페이지 표시는 PDF 실제 쪽수 기준이다.</div>
+</section>
 
 <section class="section" id="histamine"><div class="intro"><div class="kicker">01 / TARGET BIOLOGY</div><h2>Histamine 생합성·수용체·작용기전</h2><p>약물 구조를 보기 전에 ligand와 receptor의 생리적 역할, 그리고 inverse agonism을 이해한다.</p></div>
 <div class="grid"><article class="card"><h3>Histamine 생합성</h3><ol><li>Mast cell의 Golgi apparatus에서 생합성된다.</li><li>Histidine decarboxylase가 Histidine을 탈탄산한다.</li><li>조효소로 pyridoxal phosphate(PLP)가 참여한다.</li><li>합성된 Histamine은 mast cell에 저장된다.</li><li>세포 손상 등으로 방출되면 혈관 확장·투과성 증가를 유도한다.</li></ol></article><article class="card"><h3>Histamine의 이온화·tautomerism</h3><ul><li>Imidazole pKa: <b>5.74</b></li><li>α-NH₂ pKa: <b>9.80</b></li><li>생리 pH 7.4에서 약 <b>96.6%가 monocation(α-NH₃⁺)</b> 형태로 존재한다.</li><li>Imidazole은 tautomer를 형성할 수 있으며 H2 antagonist 설계에서 중요하다.</li></ul></article></div>
@@ -94,12 +170,86 @@
 </section>
 </div></div>
 </main>
-<footer class="footer">MedChem Study - PNUP · Chapter 27 · v2026.11.03.1.0</footer>
+<footer class="footer">MedChem Study - PNUP · Chapter 27 · v2026.11.03.1.1</footer>
+
 <script>
-// AI MAINTENANCE NOTE: 섹션 내비게이션은 data-target ↔ section#id로 연결된다. 섹션을 추가·이동할 때 양쪽 ID를 함께 갱신한다.
-// 퀴즈는 .question의 data-answer / data-explain을 기준으로 채점한다. 단답형은 checkText의 선택 인자로 허용 정답을 지정할 수 있다.
-document.querySelectorAll('.navbtn').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.navbtn').forEach(x=>x.classList.remove('active'));btn.classList.add('active');document.getElementById(btn.dataset.target)?.scrollIntoView({behavior:'smooth',block:'start'});}));
-function checkChoice(btn){const q=btn.closest('.question'),picked=q.querySelector('input[type=radio]:checked'),fb=q.querySelector('.feedback');if(!picked){fb.textContent='선택지를 먼저 고르세요.';fb.className='feedback show wrong';return;}const ok=picked.value===q.dataset.answer;fb.textContent=(ok?'정답입니다. ':'오답입니다. ')+q.dataset.explain;fb.className='feedback show'+(ok?'':' wrong');}
-function revealAnswer(btn){const fb=btn.closest('.question').querySelector('.feedback');fb.classList.toggle('show');btn.textContent=fb.classList.contains('show')?'모범 답안 숨기기':'모범 답안 보기';}\nfunction checkText(btn,accepted){const q=btn.closest('.question'),input=q.querySelector('input.answer-input'),fb=q.querySelector('.feedback'),answer=(accepted||q.dataset.answer||'').toLowerCase().replace(/\s+/g,'').trim(),given=input.value.toLowerCase().replace(/\s+/g,'').trim();const ok=given===answer||((answer==='aspartate')&&['asp','asparticacid'].includes(given));fb.textContent=(ok?'정답입니다. ':'다시 확인해 보세요. ')+q.dataset.explain;fb.className='feedback show'+(ok?'':' wrong');}
+// AI MAINTENANCE NOTE:
+// - 페이지 구성: 개요(overview) → PDF 약물 정리(druglist) → 개념 섹션 → 확인 문제(quiz).
+// - 새 챕터를 추가할 때는 이 페이지를 복제하고 chapter-id / 섹션 ID / nav data-target / 버전을 함께 변경한다.
+// - 약물 목록은 PDF에 실제 기재된 이름만 추가한다. 약물별 설명은 해당 PDF 페이지에서 확인되는 내용만 사용하고, 자료에 없는 MOA/SAR는 추정해 쓰지 않는다.
+// - 내비게이션은 .navbtn[data-target]와 section#id가 1:1로 대응해야 한다. 퀴즈는 .question data-answer/data-explain 속성을 사용한다.
+// - 인라인 onclick을 쓰는 기존 퀴즈 함수는 전역(window)에 노출해 유지한다.
+(function(){
+  const navButtons=[...document.querySelectorAll('.navbtn[data-target]')];
+  const sections=navButtons.map(b=>document.getElementById(b.dataset.target)).filter(Boolean);
+  function setActive(id){
+    navButtons.forEach(b=>b.classList.toggle('active',b.dataset.target===id));
+  }
+  navButtons.forEach(btn=>btn.addEventListener('click',event=>{
+    event.preventDefault();
+    const target=document.getElementById(btn.dataset.target);
+    if(!target)return;
+    setActive(target.id);
+    const top=target.getBoundingClientRect().top+window.scrollY-82;
+    window.scrollTo({top,behavior:'smooth'});
+  }));
+  if('IntersectionObserver' in window){
+    const observer=new IntersectionObserver(entries=>{
+      const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+      if(visible)setActive(visible.target.id);
+    },{rootMargin:'-90px 0px -65% 0px',threshold:[0,.15,.35,.6]});
+    sections.forEach(section=>observer.observe(section));
+  }
+  const search=document.getElementById('drugSearch');
+  const filters=[...document.querySelectorAll('[data-drug-filter]')];
+  const cards=[...document.querySelectorAll('.drug-card')];
+  const groups=[...document.querySelectorAll('.drug-group')];
+  let activeFilter='all';
+  function filterDrugs(){
+    const term=(search?.value||'').trim().toLowerCase();
+    let visible=0;
+    cards.forEach(card=>{
+      const category=card.dataset.category||'';
+      const haystack=(card.dataset.search||'')+' '+card.innerText;
+      const show=(activeFilter==='all'||category===activeFilter)&&(!term||haystack.toLowerCase().includes(term));
+      card.hidden=!show;
+      if(show)visible++;
+    });
+    groups.forEach(group=>{group.hidden=!group.querySelector('.drug-card:not([hidden])');});
+    const count=document.getElementById('drugCount');
+    if(count)count.textContent='현재 '+visible+'개 항목 표시 중';
+  }
+  filters.forEach(btn=>btn.addEventListener('click',()=>{
+    activeFilter=btn.dataset.drugFilter;
+    filters.forEach(x=>x.classList.toggle('active',x===btn));
+    filterDrugs();
+  }));
+  search?.addEventListener('input',filterDrugs);
+  filterDrugs();
+})();
+function checkChoice(btn){
+  const q=btn.closest('.question'),picked=q?.querySelector('input[type="radio"]:checked'),fb=q?.querySelector('.feedback');
+  if(!q||!fb)return;
+  if(!picked){fb.textContent='선택지를 먼저 고르세요.';fb.className='feedback show wrong';return;}
+  const ok=picked.value===q.dataset.answer;
+  fb.textContent=(ok?'정답입니다. ':'오답입니다. ')+(q.dataset.explain||'');
+  fb.className='feedback show'+(ok?'':' wrong');
+}
+function revealAnswer(btn){
+  const fb=btn.closest('.question')?.querySelector('.feedback');
+  if(!fb)return;
+  fb.classList.toggle('show');
+  btn.textContent=fb.classList.contains('show')?'모범 답안 숨기기':'모범 답안 보기';
+}
+function checkText(btn,accepted){
+  const q=btn.closest('.question'),input=q?.querySelector('.answer-input'),fb=q?.querySelector('.feedback');
+  if(!q||!input||!fb)return;
+  const answer=(accepted||q.dataset.answer||'').toLowerCase().replace(/\s+/g,'').trim();
+  const given=input.value.toLowerCase().replace(/\s+/g,'').trim();
+  const ok=given===answer||((answer==='aspartate')&&['asp','asparticacid'].includes(given));
+  fb.textContent=(ok?'정답입니다. ':'다시 확인해 보세요. ')+(q.dataset.explain||'');
+  fb.className='feedback show'+(ok?'':' wrong');
+}
 </script>
+
 </body></html>
