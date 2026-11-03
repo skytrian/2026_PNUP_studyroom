@@ -1,4 +1,4 @@
-## 면역학 기말고사 업데이트 (2026.11.03.1.2)
+## 기말고사 의약화학 Chapter 27 추가 (2026.11.03.1.0)\n- 의약화학 기말고사에 Chapter 27 「항히스타민제·항알러지제·항궤양제」 학습 페이지를 추가했습니다.\n- 전체 치료 전략 → Histamine 수용체 → H1 항히스타민제 → H2 항히스타민제 → PPI → Prostaglandins → 기타 치료제 순서의 Top-Down 구조로 구성했습니다.\n- H1 SAR·1/2세대 차이·대표 계열, Histamine에서 Cimetidine까지의 합리적 약물 설계, PPI의 산성 활성화·Cys 공유결합, Misoprostol 구조 변형, Sucralfate·Metoclopramide·Zileuton·FLAP을 강의자료 기반으로 정리했습니다.\n- 중간고사 페이지의 기존 학습 흐름을 참고해 객관식·단답형·서술형 확인 문제를 구성했습니다.\n- 향후 AI 유지보수를 위해 새 페이지와 메인 허브에 파일 구조·수정 범위·자료 우선순위·내비게이션 연결 규칙을 HTML 주석으로 기록했습니다.\n- 페이지: https://skytrian.github.io/2026_PNUP_studyroom/medchem-final-ch27.html\n\n## 면역학 기말고사 업데이트 (2026.11.03.1.2)
 - Chapter 07 「주조직적합성 항원과 항원 제시」를 별도 학습 페이지로 추가했습니다. MHC class I/II/III, MHC restriction, APC와 DC subsets, MHC I·II 항원 처리 경로, Ii·CLIP·HLA-DM, 교차항원제시 및 MHC 관련 질환을 강의자료 기반으로 정리했습니다.
 - 기존 강의 PDF 캡처 이미지(assets/ch06_all.jpg, assets/ch07_all.jpg)를 페이지에서 제거하고 저장소에서도 삭제했습니다.
 - Chapter 06은 Frontiers in Immunology의 보체 원본 도식으로, Chapter 07은 MHC class I·II 경로를 다룬 학술 도식으로 교체했습니다. 각 이미지 아래 논문·DOI 출처와 CC BY 라이선스를 표시했습니다.
@@ -13,7 +13,7 @@
 ## 학습 페이지
 - **Study Hub:** https://skytrian.github.io/2026_PNUP_studyroom/
 - **면역학:** https://skytrian.github.io/2026_PNUP_studyroom/immunology.html
-- **의약화학:** https://skytrian.github.io/2026_PNUP_studyroom/chapters.html
+- **의약화학 중간고사:** https://skytrian.github.io/2026_PNUP_studyroom/chapters.html\n- **의약화학 기말고사 Chapter 27:** https://skytrian.github.io/2026_PNUP_studyroom/medchem-final-ch27.html
 - **VS 약물 비교:** https://skytrian.github.io/2026_PNUP_studyroom/vs.html
 
 ## 주요 기능
@@ -52,3 +52,4 @@ GitHub Pages는 저장소의 Pages 설정 및 workflow를 통해 배포됩니다
 
 
 - v2026.11.03.1.2: 면역학 Chapter 06·07의 강의 PDF 캡처 이미지를 제거하고 학술 논문의 원본 도식으로 교체했습니다. 이미지별 논문 출처·DOI·CC BY 표시를 추가했습니다.
+\n\n- v2026.11.03.1.0: 기말고사 의약화학 Chapter 27 추가. 강의자료 기반 Top-Down 요약, H1/H2/PPI의 표적·SAR·약물 설계, Prostaglandins 및 기타 치료제, 객관식·단답형·서술형 복습 문항을 구성했습니다. 메인 페이지의 TBU 문구를 실제 등록된 과목/챕터 정보로 교체하고, AI 유지보수용 HTML 주석을 추가했습니다.\n
