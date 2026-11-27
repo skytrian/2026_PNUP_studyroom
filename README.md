@@ -1,8 +1,17 @@
+## 면역학 기말 Chapter 12·13 추가 (2026.11.27.1.8)
+- 「12장 세포성 및 체액성 면역」을 바탕으로 세포성·체액성 면역의 차이, CTL의 항원특이적·접촉의존적 표적세포 살해(perforin–granzyme, Fas–FasL), Th1·Th2·Th17·Treg 분화, 기억 T세포(TCM·TEM)를 정리했습니다.
+- TD·TI-1·TI-2 항원, 배중심·체세포 과돌연변이·친화력 성숙, AID의 C→U 탈아미노화, 동형전환, IgG·IgM·IgA·IgE·IgD의 기능과 분포, 항체 효과기전·Fc 수용체 및 NK/NKT 세포를 표·흐름도·확인문제로 구성했습니다.
+- 「13장 미생물에 대한 면역」을 바탕으로 세포외·세포내 세균, 세균의 면역회피, 바이러스 방어·인터페론·면역회피, 인플루엔자 항원소변이·대변이, HSV 잠복·재발, LCMV 면역병리, 진균·원충·연충 면역을 정리했습니다.
+- 병원체별 방어기전과 기생생물의 VSG 항원 변이, Th1·Th2·Th17·Treg 반응 균형을 비교했습니다. 제공 PDF의 표·도식을 학습용 표와 흐름도로 재구성했으며 PDF 캡처 이미지는 사용하지 않았습니다.
+- Chapter 06–13 상호 이동, 기말고사 허브·Study Hub 범위, README 및 면역학 버전을 갱신했습니다.
+- Chapter 12: https://skytrian.github.io/2026_PNUP_studyroom/immunology-final-ch12.html
+- Chapter 13: https://skytrian.github.io/2026_PNUP_studyroom/immunology-final-ch13.html
+
 ## 면역학 기말 Chapter 10·11 추가 (2026.11.21.1.7)
 - 「10장 B세포의 발달과 활성」을 바탕으로 골수 발달·Pre-BCR, 자기반응성 B세포의 운명, B-1/B-2 비교, BCR 신호와 공동수용체, 조력 T세포 도움, 배중심·체세포 과돌연변이·친화력 성숙, 동형전환과 1·2차 항체반응을 정리했습니다.
 - 「11장 싸이토카인」을 바탕으로 사이토카인 작용 특성, 수용체 계열·공통 사슬, JAK–STAT와 조합표, 선천·적응면역 사이토카인, Th1·Th2·Th17·Tfh, M1/M2 대식세포 및 조혈작용 인자를 비교표로 구성했습니다.
 - PDF 목차에는 11.6 사이토카인 관련 질환이 있으나 제공된 본문에는 상세 내용이 없어 질환별 연결은 임의로 추가하지 않았습니다.
-- Chapter 06–11 상호 이동, 기말고사 과목 카드, Study Hub 범위, README 및 면역학 버전을 갱신했습니다. PDF 캡처 이미지는 페이지에 사용하지 않았습니다.
+- Chapter 06–13 상호 이동, 기말고사 과목 카드, Study Hub 범위, README 및 면역학 버전을 갱신했습니다. PDF 캡처 이미지는 페이지에 사용하지 않았습니다.
 - Chapter 10: https://skytrian.github.io/2026_PNUP_studyroom/immunology-final-ch10.html
 - Chapter 11: https://skytrian.github.io/2026_PNUP_studyroom/immunology-final-ch11.html
 
@@ -12,7 +21,7 @@
 - 결합력·감별신호 가설과 CD4/CD8 지시·확률 모델은 자료에서 확정되지 않은 상태를 그대로 표시했습니다.
 - 3가지 활성화 신호, 작용·기억·조절 T세포, APC별 공동자극 능력, 유전자 발현 시점, TCR 신호전달, PLCγ1 하위 경로, 초항원, Fas·미토콘드리아 경로 및 AICD를 표·흐름도·확인문제로 구성했습니다.
 - 사이클로스포린·타크로리무스는 강의자료가 교재 9장 본문 밖 보충 내용으로 표시한 점을 명시했습니다. PDF 캡처 이미지는 사용하지 않았습니다.
-- Chapter 06–11 상호 이동, 기말고사 면역학 카드, Study Hub 범위 표기 및 버전 정보를 갱신했습니다.
+- Chapter 06–13 상호 이동, 기말고사 면역학 카드, Study Hub 범위 표기 및 버전 정보를 갱신했습니다.
 - 페이지: https://skytrian.github.io/2026_PNUP_studyroom/immunology-final-ch09.html
 
 ## 면역학 기말 Chapter 08 항원수용체 발달 추가 (2026.11.04.1.3)
@@ -64,6 +73,8 @@
 - **면역학:** https://skytrian.github.io/2026_PNUP_studyroom/immunology.html
 - **의약화학 중간고사:** https://skytrian.github.io/2026_PNUP_studyroom/chapters.html\n- **의약화학 기말고사 Chapter 27:** https://skytrian.github.io/2026_PNUP_studyroom/medchem-final-ch27.html
 - **면역학 기말 Chapter 08:** https://skytrian.github.io/2026_PNUP_studyroom/immunology-final-ch08.html\n- **면역학 기말 Chapter 09:** https://skytrian.github.io/2026_PNUP_studyroom/immunology-final-ch09.html\n- **면역학 기말 Chapter 10:** https://skytrian.github.io/2026_PNUP_studyroom/immunology-final-ch10.html\n- **면역학 기말 Chapter 11:** https://skytrian.github.io/2026_PNUP_studyroom/immunology-final-ch11.html
+- **면역학 기말 Chapter 12:** https://skytrian.github.io/2026_PNUP_studyroom/immunology-final-ch12.html
+- **면역학 기말 Chapter 13:** https://skytrian.github.io/2026_PNUP_studyroom/immunology-final-ch13.html
 - **VS 약물 비교:** https://skytrian.github.io/2026_PNUP_studyroom/vs.html
 
 ## 주요 기능
@@ -79,7 +90,7 @@
 - `MAJOR`: 호환성이 깨지는 변경 또는 큰 구조 개편
 - `MINOR`: 기능 추가·오류 수정 등 일반 업데이트
 
-현재 면역학 기말 버전은 `2026.11.21.1.7`이며 Chapter 10 B세포의 발달과 활성, Chapter 11 사이토카인 페이지를 추가했습니다. 현재 의약화학 버전은 `2026.11.03.2.9`입니다. Chapter 27 구조 이미지 소스를 NCI/CADD 우선으로 변경하고, 실패 시 PubChem으로 자동 재시도합니다. VS 약물 비교 페이지를 추가해 85개 약물에서 2~4개를 직접 선택하거나, 계열·표적·작용기전별 추천 조합을 비교할 수 있습니다. 강의자료 `약물리스트.pdf`의 용도·약물표적·작용 양식을 약물 도감과 학습 해설에 추가했고, 약물명에서 세 정보를 고르는 7단계 퀴즈도 강의자료 기준으로 출제하도록 맞췄습니다. Isosorbide dinitrate의 작용기전·구조-SAR·명명법·활성 대사체·nitrate tolerance 및 주요 안전성 포인트를 Chapter 18 도감과 기출 핵심 해설에 보강했습니다. 기출필수 문항 해설 및 관련 약물 카드를 보강했고, 7단계 학습에 `약물명 → 용도·약물표적·작용양식(MOA)` 선택 모드를 추가했습니다. 약물 구조 이미지가 기본 PubChem 주소에서 실패할 경우 PubChem 대체 주소와 NCI/CADD 구조 이미지로 순차 재시도하도록 보완했습니다. Chapter 18–26의 기출 핵심 포인트와 챕터별 비교 노트도 보강했으며, 최근 전체 스크립트 검수에서 메인 학습 스크립트의 중복 `const` 선언을 발견해 수정했고, 3개 인라인 스크립트 모두 문법 파싱 검사를 통과했습니다. 페이지 코드를 수정해 배포할 때마다 해당 페이지의 버전 상수와 버전 JSON 파일을 함께 갱신합니다. 의약화학은 `version.json`, 면역학은 `immunology-version.json`을 기준으로 버전을 확인합니다. 버전 확인 요청에는 캐시 방지 쿼리를 사용하고, 새 버전이 감지되면 버전이 포함된 URL로 페이지를 다시 엽니다.
+현재 면역학 기말 버전은 `2026.11.27.1.8`이며 Chapter 12 세포성·체액성 면역, Chapter 13 미생물에 대한 면역 페이지를 추가했습니다. 현재 의약화학 버전은 `2026.11.03.2.9`입니다. Chapter 27 구조 이미지 소스를 NCI/CADD 우선으로 변경하고, 실패 시 PubChem으로 자동 재시도합니다. VS 약물 비교 페이지를 추가해 85개 약물에서 2~4개를 직접 선택하거나, 계열·표적·작용기전별 추천 조합을 비교할 수 있습니다. 강의자료 `약물리스트.pdf`의 용도·약물표적·작용 양식을 약물 도감과 학습 해설에 추가했고, 약물명에서 세 정보를 고르는 7단계 퀴즈도 강의자료 기준으로 출제하도록 맞췄습니다. Isosorbide dinitrate의 작용기전·구조-SAR·명명법·활성 대사체·nitrate tolerance 및 주요 안전성 포인트를 Chapter 18 도감과 기출 핵심 해설에 보강했습니다. 기출필수 문항 해설 및 관련 약물 카드를 보강했고, 7단계 학습에 `약물명 → 용도·약물표적·작용양식(MOA)` 선택 모드를 추가했습니다. 약물 구조 이미지가 기본 PubChem 주소에서 실패할 경우 PubChem 대체 주소와 NCI/CADD 구조 이미지로 순차 재시도하도록 보완했습니다. Chapter 18–26의 기출 핵심 포인트와 챕터별 비교 노트도 보강했으며, 최근 전체 스크립트 검수에서 메인 학습 스크립트의 중복 `const` 선언을 발견해 수정했고, 3개 인라인 스크립트 모두 문법 파싱 검사를 통과했습니다. 페이지 코드를 수정해 배포할 때마다 해당 페이지의 버전 상수와 버전 JSON 파일을 함께 갱신합니다. 의약화학은 `version.json`, 면역학은 `immunology-version.json`을 기준으로 버전을 확인합니다. 버전 확인 요청에는 캐시 방지 쿼리를 사용하고, 새 버전이 감지되면 버전이 포함된 URL로 페이지를 다시 엽니다.
 
 ## 배포
 GitHub Pages는 저장소의 Pages 설정 및 workflow를 통해 배포됩니다. 배포 직후 CDN 반영까지 잠시 시간이 걸릴 수 있습니다.
